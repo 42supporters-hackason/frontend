@@ -10,6 +10,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -79,6 +80,16 @@ export const Header = () => {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-haspopup="true"
+              color="default"
+            >
+              <MonetizationOnIcon />
+            </IconButton>
+            <div style={{ color: 'black' }}>3</div>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
