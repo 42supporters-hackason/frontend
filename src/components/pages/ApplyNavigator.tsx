@@ -1,6 +1,6 @@
 import React, { VFC } from 'react'
 
-export const SearchNavigator: VFC = () => {
+export const ApplyNavigator: VFC = () => {
 	return (
 		<div>
 			search
