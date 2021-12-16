@@ -3,7 +3,6 @@ import { Header } from "../organisms/Header"
 import styled from "styled-components"
 import Grid from "@mui/material/Grid"
 import { MatchScheduleCards } from '../organisms/MatchScheduleCards'
-import Button from '@mui/material/Button';
 import { MoveToApply } from '../organisms/MoveToApply'
 import { MoveToRecrute } from '../organisms/MoveToRecrute'
 
