@@ -3,7 +3,8 @@ import { Header } from "../organisms/Header"
 import styled from "styled-components"
 import Grid from "@mui/material/Grid"
 import { MatchScheduleCards } from '../organisms/MatchScheduleCards'
-import Button from '@mui/material/Button';
+import { MoveToApply } from '../organisms/MoveToApply'
+import { MoveToRecrute } from '../organisms/MoveToRecrute'
 
 export const Home: VFC = () => {
 	return (
@@ -20,19 +21,8 @@ export const Home: VFC = () => {
 					<MatchingRouteTitle>
 						Matchingする
 					</MatchingRouteTitle>
-					<MatchRecruteDescription>
-					あなたが目的を設定して <br/>
-					P2Pを募集する
-					</MatchRecruteDescription>
-					<ButtonWrapper>
-						<Button variant="outlined">ナビゲータを募集する</Button>
-					</ButtonWrapper>
-					<MatchRecruteDescription>
-					募集されているP2Pから<br/>Matchingする
-					</MatchRecruteDescription>
-					<ButtonWrapper>
-						<Button variant="outlined">ナビゲータとして応募する</Button>
-					</ButtonWrapper>
+					<MoveToRecrute />
+					<MoveToApply />
 				</Grid>
 			</Grid>
 		</BackGround>
@@ -59,15 +49,4 @@ const MatchingRouteTitle = styled.p`
 	font-size: 25px;
 	font-family: Corben;
 	font-weight: 900;
-`
-
-const MatchRecruteDescription = styled.div`
-	margin-top: 100px;
-	text-align: center;
-	font-size: 20px;
-`
-
-const ButtonWrapper = styled.div`
-	text-align: center;
-	margin-top: 20px;
 `

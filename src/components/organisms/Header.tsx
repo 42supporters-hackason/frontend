@@ -11,6 +11,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import { useNavigate } from "react-router-dom"
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -53,6 +54,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export const Header = () => {
+  const navigate = useNavigate()
+
+  const onClickBackToHome = () => {
+    navigate("/")
+  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -65,6 +71,7 @@ export const Header = () => {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
             fontFamily="Corben"
+            onClick={onClickBackToHome}
           >
             P2P Matching
           </Typography>
