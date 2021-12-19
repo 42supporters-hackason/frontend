@@ -22,7 +22,7 @@ export const UserDetailCard: VFC = () => {
 						taisei yasui
 						</Typography>
 						<CardCommentBackGround>
-							<UserProfileList />
+							<UserProfileList title="使える言語" listItemTitle="language" listItem={["Ruby", "Java"]} />
 						</CardCommentBackGround>
 					</CardContent>
 				</Card>
