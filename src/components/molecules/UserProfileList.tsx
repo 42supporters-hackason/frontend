@@ -31,9 +31,7 @@ export const UserProfileList: VFC<ProfileListType> = (props) => {
         {isOpen ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={isOpen} timeout="auto" unmountOnExit>
-		  {listItem.map(() => {
-			<ListItem />
-		  })}
+		  <ListItem />
       </Collapse>
     </>
   );
