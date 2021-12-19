@@ -9,6 +9,7 @@ import { Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui
 import StarBorder from '@mui/icons-material/StarBorder';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import { UserProfileList } from '../molecules/UserProfileList';
 
 export const UserDetailCard: VFC = () => {
 	const [isOpenFirst, setIsOpenFirst] = useState<boolean | undefined>(false)
@@ -21,71 +22,9 @@ export const UserDetailCard: VFC = () => {
 						taisei yasui
 						</Typography>
 						<CardCommentBackGround>
-							<Typography>
-								使える言語:
-							</Typography>
-							<ListItemButton onClick={() => setIsOpenFirst(!isOpenFirst)}>
-								<ListItemIcon>
-									<InboxIcon />
-								</ListItemIcon>
-								<ListItemText primary="language" />
-								{isOpenFirst ? <ExpandLess /> : <ExpandMore />}
-							</ListItemButton>
-							<Collapse in={isOpenFirst} timeout="auto" unmountOnExit>
-								<List component="div" disablePadding>
-									<ListItemButton sx={{ pl: 4 }}>
-										<ListItemIcon>
-										<StarBorder />
-										</ListItemIcon>
-										<ListItemText primary="Ruby" />
-									</ListItemButton>
-								</List>
-							</Collapse>
-							<Typography>
-								使える言語
-							</Typography>
-							<ListItemButton onClick={() => setIsOpenFirst(!isOpenFirst)}>
-								<ListItemIcon>
-									<InboxIcon />
-								</ListItemIcon>
-								<ListItemText primary="使える言語" />
-								{isOpenFirst ? <ExpandLess /> : <ExpandMore />}
-							</ListItemButton>
-							<Collapse in={isOpenFirst} timeout="auto" unmountOnExit>
-								<List component="div" disablePadding>
-									<ListItemButton sx={{ pl: 4 }}>
-										<ListItemIcon>
-										<StarBorder />
-										</ListItemIcon>
-										<ListItemText primary="Ruby" />
-									</ListItemButton>
-								</List>
-							</Collapse>
-							<Typography>
-								使える言語:
-							</Typography>
-							<ListItemButton onClick={() => setIsOpenFirst(!isOpenFirst)}>
-								<ListItemIcon>
-									<InboxIcon />
-								</ListItemIcon>
-								<ListItemText primary="使える言語" />
-								{isOpenFirst ? <ExpandLess /> : <ExpandMore />}
-							</ListItemButton>
-							<Collapse in={isOpenFirst} timeout="auto" unmountOnExit>
-								<List component="div" disablePadding>
-									<ListItemButton sx={{ pl: 4 }}>
-										<ListItemIcon>
-										<StarBorder />
-										</ListItemIcon>
-										<ListItemText primary="Ruby" />
-									</ListItemButton>
-								</List>
-							</Collapse>
+							<UserProfileList />
 						</CardCommentBackGround>
 					</CardContent>
-					<CardActions>
-						<Button>Profile</Button>
-					</CardActions>
 				</Card>
 			</CardPosition>
 		</>
