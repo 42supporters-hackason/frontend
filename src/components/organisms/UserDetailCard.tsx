@@ -1,18 +1,11 @@
 import { useState, VFC } from 'react'
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import styled from "styled-components"
-import { Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-import StarBorder from '@mui/icons-material/StarBorder';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { UserProfileList } from '../molecules/UserProfileList';
 
 export const UserDetailCard: VFC = () => {
-	const [isOpenFirst, setIsOpenFirst] = useState<boolean | undefined>(false)
 	return (
 		<>
 			<CardPosition>

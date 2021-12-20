@@ -2,14 +2,13 @@ import { VFC, useState } from "react";
 import Typography from "@mui/material/Typography";
 import {
   Collapse,
-  List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
-import { ListItem } from "../atoms/ListItem";
+import { ProfileListItem } from "../atoms/ProfileListItem";
 
 type ProfileListType = {
   title: string;
@@ -20,6 +19,7 @@ type ProfileListType = {
 export const UserProfileList: VFC<ProfileListType> = (props) => {
   const { title, listItemTitle, listItem } = props;
   const [isOpen, setIsOpen] = useState<boolean | undefined>(false);
+
   return (
     <>
       <Typography>{title}:</Typography>
@@ -31,7 +31,9 @@ export const UserProfileList: VFC<ProfileListType> = (props) => {
         {isOpen ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={isOpen} timeout="auto" unmountOnExit>
-		  <ListItem />
+        {listItem.map((item: string) => (
+          <ProfileListItem item={item} />
+        ))}
       </Collapse>
     </>
   );

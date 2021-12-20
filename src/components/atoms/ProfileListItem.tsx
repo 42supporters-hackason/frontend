@@ -2,7 +2,11 @@ import { VFC } from 'react'
 import { List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import StarBorder from '@mui/icons-material/StarBorder';
 
-export const ListItem: VFC = () => {
+type Item = {
+	item?: string,
+}
+
+export const ProfileListItem: VFC<Item> = (props) => {
 	return (
 		<>
         <List component="div" disablePadding>
