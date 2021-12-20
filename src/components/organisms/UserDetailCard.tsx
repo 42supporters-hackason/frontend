@@ -15,7 +15,9 @@ export const UserDetailCard: VFC = () => {
 						taisei yasui
 						</Typography>
 						<CardCommentBackGround>
-							<UserProfileList title="使える言語" listItemTitle="language" listItem={["Ruby", "Java"]} />
+							<UserProfileList title="プログラミング歴" listItemTitle="years of experience" listItem={["1年"]} />
+							<UserProfileList title="使える言語" listItemTitle="language (can use)" listItem={["Ruby", "Java"]} />
+							<UserProfileList title="得意な言語" listItemTitle="language (like)" listItem={["Ruby", "Java"]} />
 						</CardCommentBackGround>
 					</CardContent>
 				</Card>
