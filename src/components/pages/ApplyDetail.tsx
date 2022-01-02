@@ -1,8 +1,8 @@
 import { VFC } from 'react'
-import { ApplyDetailCards } from '../organisms/ApplyDetailCards'
+import { ApplyDetailCards } from '../organisms/apply/ApplyDetailCards'
 import { Header } from '../organisms/Header'
 import Grid from "@mui/material/Grid"
-import { UserDetailCard } from '../organisms/UserDetailCard'
+import { UserDetailCard } from '../organisms/recrute/UserDetailCard'
 import { Button } from '@mui/material'
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom"

@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import styled from "styled-components"
-import { UserProfileList } from '../molecules/UserProfileList';
+import { UserProfileList } from '../../molecules/UserProfileList';
 
 export const UserDetailCard: VFC = () => {
 	return (

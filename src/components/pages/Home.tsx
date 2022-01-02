@@ -2,9 +2,9 @@ import { VFC } from 'react'
 import { Header } from "../organisms/Header"
 import styled from "styled-components"
 import Grid from "@mui/material/Grid"
-import { MatchScheduleCards } from '../organisms/MatchScheduleCards'
-import { MoveToApply } from '../organisms/MoveToApply'
-import { MoveToRecrute } from '../organisms/MoveToRecrute'
+import { MatchScheduleCards } from '../organisms/recrute/MatchScheduleCards'
+import { MoveToApply } from '../organisms/apply/MoveToApply'
+import { MoveToRecrute } from '../organisms/recrute/MoveToRecrute'
 
 export const Home: VFC = () => {
 	return (
