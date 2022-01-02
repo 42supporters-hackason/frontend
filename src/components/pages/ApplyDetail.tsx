@@ -1,8 +1,8 @@
 import { VFC } from 'react'
-import { ApplyDetailCards } from '../organisms/apply/ApplyDetailCards'
+import { ApplyDetailCardsList } from '../organisms/apply/ApplyDetailCardsList'
 import { Header } from '../organisms/Header'
 import Grid from "@mui/material/Grid"
-import { UserDetailCard } from '../organisms/recrute/UserDetailCard'
+import { UserDetailCard } from '../molecules/Cards/UserDetailCard'
 import { Button } from '@mui/material'
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom"
@@ -19,7 +19,7 @@ export const ApplyDetail: VFC = () => {
 			<Header />
 			<Grid container>
 				<Grid xs={8}>
-					<ApplyDetailCards />
+					<ApplyDetailCardsList />
 				</Grid>
 				<Grid xs={4}>
 					<UserDetailCard />

@@ -2,7 +2,7 @@ import { VFC } from 'react'
 import { Header } from "../organisms/Header"
 import styled from "styled-components"
 import Grid from "@mui/material/Grid"
-import { MatchScheduleCards } from '../organisms/recrute/MatchScheduleCards'
+import { MatchScheduleCardsList } from '../organisms/home/MatchScheduleCardsList'
 import { MoveToApply } from '../organisms/apply/MoveToApply'
 import { MoveToRecrute } from '../organisms/recrute/MoveToRecrute'
 
@@ -15,7 +15,7 @@ export const Home: VFC = () => {
 					<MatchingTitle>
 						Matchingの予定
 					</MatchingTitle>
-					<MatchScheduleCards/>
+					<MatchScheduleCardsList/>
 				</Grid>
 				<Grid item xs={4}>
 					<MatchingRouteTitle>
