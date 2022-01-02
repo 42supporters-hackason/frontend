@@ -1,11 +1,13 @@
-import { useState, VFC } from 'react'
+import { VFC, memo, useEffect } from 'react'
+import axios from "axios"
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import styled from "styled-components"
-import { UserProfileList } from '../molecules/UserProfileList';
+import { UserProfileList } from '../UserProfileList';
+import { User } from "../../../interfase"
 
-export const UserDetailCard: VFC = () => {
+export const UserDetailCard: VFC = memo(() => {
 	return (
 		<>
 			<CardPosition>
@@ -24,7 +26,7 @@ export const UserDetailCard: VFC = () => {
 			</CardPosition>
 		</>
 	)
-}
+})
 
 const CardCommentBackGround = styled.div`
   background-color: #F1F1F2;
