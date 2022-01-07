@@ -1,75 +1,25 @@
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import styled from "styled-components"
+import { postDataType } from '../../../interfase';
+import { MatchingScheduleCrad } from '../../molecules/Cards/MatchingScheduleCrad';
+
+const data: postDataType[] = [
+  {
+    username: "yasui taisei",
+    postComment: "AWSの勉強がしたいです",
+    isNavigator: true,
+  },
+  {
+    username: "hoge hoge",
+    postComment: "Djangoの勉強がしたいです",
+    isNavigator: false,
+  },
+]
 
 export const MatchScheduleCardsList = () => {
   return (
     <>
-      <CardPosition>
-        <Card sx={{ minWidth: 275 }}>
-          <CardContent>
-            <Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
-              taisei yasui
-            </Typography>
-            <CardCommentBackGround>
-              AWSの学習に困っています。
-              どなたか一緒に手伝ってくれる人がいたら嬉しいです。
-            </CardCommentBackGround>
-          </CardContent>
-          <CardActions>
-            <Button>Profile</Button>
-          </CardActions>
-        </Card>
-      </CardPosition>
-      <CardPosition>
-        <Card sx={{ minWidth: 275 }}>
-          <CardContent>
-            <Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
-              taisei yasui
-            </Typography>
-            <CardCommentBackGround>
-              AWSの学習に困っています。
-              どなたか一緒に手伝ってくれる人がいたら嬉しいです。
-            </CardCommentBackGround>
-          </CardContent>
-          <CardActions>
-            <Button>Profile</Button>
-          </CardActions>
-        </Card>
-      </CardPosition>
-      <CardPosition>
-        <Card sx={{ minWidth: 275 }}>
-          <CardContent>
-            <Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
-              taisei yasui
-            </Typography>
-            <CardCommentBackGround>
-              AWSの学習に困っています。
-              どなたか一緒に手伝ってくれる人がいたら嬉しいです。
-            </CardCommentBackGround>
-          </CardContent>
-          <CardActions>
-            <Button>Profile</Button>
-          </CardActions>
-        </Card>
-      </CardPosition>
+      {data.map((item) => (
+        <MatchingScheduleCrad username={item.username} postComment={item.postComment} isNavigator={item.isNavigator} />
+      ))}
     </>
-  );
+  )
 }
-
-const CardPosition = styled.div`
-  margin: 20px 100px 10px 50px;
-`
-
-const CardCommentBackGround = styled.div`
-  background-color: #F1F1F2;
-  width: 600px;
-  min-height: 50px;
-  heigth: auto;
-  border-radius: 5px;
-  padding: 15px;
-`
-

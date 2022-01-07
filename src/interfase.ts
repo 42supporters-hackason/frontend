@@ -11,3 +11,9 @@ export type User = {
 		skill: string;
 	}[];
 }
+
+export type postDataType = {
+    username: string;
+    postComment: string;
+    isNavigator: boolean;
+}
