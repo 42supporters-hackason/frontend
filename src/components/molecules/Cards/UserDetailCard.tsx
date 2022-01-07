@@ -8,6 +8,12 @@ import { UserProfileList } from '../UserProfileList';
 import { User } from "../../../interfase"
 
 export const UserDetailCard: VFC = memo(() => {
+	useEffect(() => {
+		axios.get<Array<User>>("https://blooming-woodland-93253.herokuapp.com/users")
+		.then((res: any) => {
+			console.log(res)
+		})
+	}, [])
 	return (
 		<>
 			<CardPosition>

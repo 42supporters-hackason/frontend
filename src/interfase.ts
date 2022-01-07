@@ -13,7 +13,16 @@ export type User = {
 }
 
 export type postDataType = {
-    username: string;
-    postComment: string;
-    isNavigator: boolean;
+	id: number;
+	title: string;
+	beginTime: Date;
+	endTime: Date;
+	driverId: number;
+	username: string;
+	navigatorId: number;
+	otherSkill: string;
+	requiredSkill: {
+		id: number;
+		skill: string;
+	}[];
 }

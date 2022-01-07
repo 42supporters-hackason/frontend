@@ -4,10 +4,20 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styled from "styled-components";
-import { postDataType } from "../../../interfase";
+import moment from "moment";
 
-export const MatchingScheduleCrad = (props: postDataType) => {
-  const { username, postComment, isNavigator } = props;
+type PropsType = {
+  username: string;
+  title: string;
+  isNavigator: boolean;
+};
+
+const startDate = new Date("December 17, 1995 03:24:00");
+const endDate = new Date("December 17, 1995 03:28:00");
+
+export const MatchingScheduleCrad = (props: PropsType) => {
+  const { username, title, isNavigator } = props;
+
   return (
     <>
       <CardWrapper isNavigator={isNavigator}>
@@ -20,7 +30,10 @@ export const MatchingScheduleCrad = (props: postDataType) => {
             >
               {username}
             </Typography>
-            <CardCommentBackGround>{postComment}</CardCommentBackGround>
+            <CardCommentBackGround>{title}</CardCommentBackGround>
+            <Typography sx={{ fontSize: 20 }} color="text.primary">
+              {moment(startDate).format("MMMM Do, h:mm a").toString()}   ~    {moment(endDate).format("MMMM Do, h:mm a").toString()}
+            </Typography>
           </CardContent>
           <CardActions>
             <Button>Profile</Button>

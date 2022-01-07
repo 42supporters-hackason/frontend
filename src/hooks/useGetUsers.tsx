@@ -6,10 +6,9 @@ export const useGetUsers = () => {
 	const [users, setUsers] = useState<Array<User>>([])
 	const getUser = () => {
 		axios.get<Array<User>>("https://blooming-woodland-93253.herokuapp.com/users")
-		.then((res) => {
+		.then((res: any) => {
 			console.log(res)
 		})
 	}
 	return {getUser}
 }
-
