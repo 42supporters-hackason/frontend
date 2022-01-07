@@ -18,13 +18,13 @@ import React, {
   export const SetApplyKeywordContext = createContext(
     {} as Dispatch<SetStateAction<string | undefined>>
   );
-  export const ApplyStartDateContext = createContext<Date | undefined>(undefined);
+  export const ApplyStartDateContext = createContext<Date | undefined | null>(undefined);
   export const SetApplyStartDateContext = createContext(
-    {} as Dispatch<SetStateAction<Date | undefined>>
+    {} as Dispatch<SetStateAction<Date | undefined | null>>
   );
-  export const ApplyEndDateContext = createContext<Date | undefined>(undefined);
+  export const ApplyEndDateContext = createContext<Date | undefined | null>(undefined);
   export const SetApplyEndDateContext = createContext(
-    {} as Dispatch<SetStateAction<Date | undefined>>
+    {} as Dispatch<SetStateAction<Date | undefined | null>>
   );
 
 export const ApplyPostProvider = (props: { children: ReactNode }) => {
@@ -34,8 +34,8 @@ export const ApplyPostProvider = (props: { children: ReactNode }) => {
   const [applyUsername, setApplyUsername] = useState<string | undefined>("");
   const [applyKeyword, setApplyKeyword] = useState<string | undefined>("");
   const [applyStartDate, setApplyStartDate] =
-    useState<Date | undefined>(undefined);
-  const [applyEndDate, setApplyEndDate] = useState<Date | undefined>(undefined);
+    useState<Date | undefined | null>(undefined);
+  const [applyEndDate, setApplyEndDate] = useState<Date | undefined | null>(undefined);
 
   return (
   <>

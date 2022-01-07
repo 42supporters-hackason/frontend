@@ -1,21 +1,24 @@
-import { VFC, useState } from 'react'
+import { VFC, useState, useContext } from 'react'
 import styled from "styled-components"
 import { TextField } from '@mui/material'
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import Typography from '@mui/material/Typography';
 import DateTimePicker from '@mui/lab/DateTimePicker';
+import { ApplyEndDateContext, ApplyStartDateContext, SetApplyEndDateContext, SetApplyStartDateContext } from '../../../providers/ApplyPostProvider';
 
 export const DateField = () => {
-	const [startDateValue, SetStartDateValue] = useState<Date | null>(null)
-	const [endDateValue, SetEndDateValue] = useState<Date | null>(null)
+	const applyStartDate = useContext(ApplyStartDateContext)
+	const setApplyStartDate = useContext(SetApplyStartDateContext)
+	const applyEndDate = useContext(ApplyEndDateContext)
+	const setApplyEndDate = useContext(SetApplyEndDateContext)
 
-	const onChangeStartDateValue = (newValue: Date | null) => {
-		SetStartDateValue(newValue)
+	const onChangeStartDateValue = (newValue: Date | undefined | null) => {
+		setApplyStartDate(newValue)
 	}
 
-	const onChangeEndDateValue = (newValue: Date | null) => {
-		SetEndDateValue(newValue)
+	const onChangeEndDateValue = (newValue: Date | undefined | null) => {
+		setApplyEndDate(newValue)
 	}
 
 	return (
@@ -26,7 +29,7 @@ export const DateField = () => {
 			<LocalizationProvider dateAdapter={AdapterDateFns}>
 				<DateTimePicker
 					label="start"
-					value={startDateValue}
+					value={applyStartDate}
 					onChange={onChangeStartDateValue}
 					renderInput={(params) => <TextField {...params} />}
 				/>
@@ -34,7 +37,7 @@ export const DateField = () => {
 			<LocalizationProvider dateAdapter={AdapterDateFns}>
 				<DateTimePicker
 					label="end"
-					value={endDateValue}
+					value={applyEndDate}
 					onChange={onChangeEndDateValue}
 					renderInput={(params) => <TextField {...params} />}
 				/>
