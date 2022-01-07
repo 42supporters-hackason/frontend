@@ -1,4 +1,4 @@
-import { VFC } from 'react'
+import { useContext, VFC } from 'react'
 import { ApplyDetailCardsList } from '../organisms/apply/ApplyDetailCardsList'
 import { Header } from '../organisms/Header'
 import Grid from "@mui/material/Grid"
@@ -6,9 +6,13 @@ import { UserDetailCard } from '../molecules/Cards/UserDetailCard'
 import { Button } from '@mui/material'
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom"
+import { ApplyStartDateContext } from '../../providers/ApplyPostProvider'
 
 export const ApplyDetail: VFC = () => {
 	const navigate = useNavigate()
+	const applyStartDate = useContext(ApplyStartDateContext)
+
+	console.log(applyStartDate)
 
 	const onClickApplyNavigator = () => {
 		navigate('/')

@@ -38,9 +38,9 @@ export const ApplyNavigator: VFC = () => {
 						<DateField />
 					</Grid>
 					<Grid xs={6}>
-					<ButtonWrapper>
-						<Button variant="outlined" onClick={onClickApplyButton} >絞り込む</Button>
-					</ButtonWrapper>
+						<ButtonWrapper>
+							<Button variant="outlined" onClick={onClickApplyButton} >絞り込む</Button>
+						</ButtonWrapper>
 					</Grid>
 				</Grid>
 			</ApplyNavigatorBackGround>
