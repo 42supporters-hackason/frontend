@@ -1,10 +1,10 @@
 import React, { memo, useContext } from 'react'
 import { Button, Grid, TextField, Typography } from '@mui/material'
 import styled from "styled-components"
-import { useRecruteTitleContext } from '../../../providers/RecrutePostProvider';
+import { useSetRecruteTitleContext } from '../../../providers/RecrutePostProvider';
 
 export const RecruteTitle = memo(() => {
-	const { setRecruteTitle } = useRecruteTitleContext();
+	const setRecruteTitle = useSetRecruteTitleContext();
 	return (
 		<>
 			<Typography>
