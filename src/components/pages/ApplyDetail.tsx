@@ -10,9 +10,6 @@ import { ApplyStartDateContext } from '../../providers/ApplyPostProvider'
 
 export const ApplyDetail: VFC = () => {
 	const navigate = useNavigate()
-	const applyStartDate = useContext(ApplyStartDateContext)
-
-	console.log(applyStartDate)
 
 	const onClickApplyNavigator = () => {
 		navigate('/')

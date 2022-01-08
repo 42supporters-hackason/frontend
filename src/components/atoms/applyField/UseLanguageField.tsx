@@ -1,14 +1,17 @@
 import styled from "styled-components"
 import { TextField } from '@mui/material'
 import Typography from '@mui/material/Typography';
+import { useContext } from "react";
+import { SetApplyUseLanguageContext } from "../../../providers/ApplyPostProvider";
 
 export const UseLanguageField = () => {
+	const setApplyUseLanguage = useContext(SetApplyUseLanguageContext)
 	return (
 		<InputFieldWrapper>
 			<Typography>
 				使用する言語
 			</Typography>
-			<StyledTextField variant="outlined" label="使用する言語" />
+			<StyledTextField variant="outlined" label="使用する言語" onChange={(e) => setApplyUseLanguage(e.target.value)}/>
 		</InputFieldWrapper>
 	)
 }

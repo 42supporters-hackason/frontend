@@ -53,7 +53,7 @@ const ApplyNavigatorBackGround = styled.div`
 `
 
 const MainTitle = styled.div`
-	margin: 50px;
+	margin: 40px;
 	font-size: 25px;
 	border: 10px solid;
 	border-color: #D1D3FF;
