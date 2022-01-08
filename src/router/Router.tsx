@@ -5,22 +5,36 @@ import { ApplyNavigator } from "../components/pages/ApplyNavigator";
 import { Home } from "../components/pages/Home";
 import { RecruteNavigator } from "../components/pages/RecruteNavigator";
 import { ApplyPostProvider } from "../providers/ApplyPostProvider";
+import { RecrutePostProvider } from "../providers/RecrutePostProvider";
 
 export const Router: VFC = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/recrute" element={<RecruteNavigator />} />
-      <Route path="/apply" element={
-				<ApplyPostProvider>
-					<ApplyNavigator />
-				</ApplyPostProvider>
-			} />
-      <Route path="/apply/detail" element={
-				<ApplyPostProvider>
-					<ApplyDetail />
-				</ApplyPostProvider>
-			} />
+      <Route
+        path="/recrute"
+        element={
+          <RecrutePostProvider>
+            <RecruteNavigator />
+          </RecrutePostProvider>
+        }
+      />
+      <Route
+        path="/apply"
+        element={
+          <ApplyPostProvider>
+            <ApplyNavigator />
+          </ApplyPostProvider>
+        }
+      />
+      <Route
+        path="/apply/detail"
+        element={
+          <ApplyPostProvider>
+            <ApplyDetail />
+          </ApplyPostProvider>
+        }
+      />
     </Routes>
   );
 };

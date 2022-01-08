@@ -1,4 +1,4 @@
-import { VFC, useState, useContext } from 'react'
+import { VFC, useState, useContext, memo } from 'react'
 import styled from "styled-components"
 import { TextField } from '@mui/material'
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import { ApplyEndDateContext, ApplyStartDateContext, SetApplyEndDateContext, SetApplyStartDateContext } from '../../../providers/ApplyPostProvider';
 
-export const DateField = () => {
+export const ApplyDateField = memo(() => {
 	const applyStartDate = useContext(ApplyStartDateContext)
 	const setApplyStartDate = useContext(SetApplyStartDateContext)
 	const applyEndDate = useContext(ApplyEndDateContext)
@@ -44,7 +44,7 @@ export const DateField = () => {
 			</LocalizationProvider>
 		</InputFieldWrapper>
 	)
-}
+})
 
 const InputFieldWrapper = styled.div`
 	margin-top: 60px;

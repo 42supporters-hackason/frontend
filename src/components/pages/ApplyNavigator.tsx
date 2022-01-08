@@ -4,13 +4,14 @@ import styled from "styled-components"
 import { Grid } from '@mui/material'
 import { Button } from '@mui/material'
 import { useNavigate } from "react-router-dom"
-import { UseLanguageField } from '../atoms/applyField/UseLanguageField';
-import { UsernameField } from '../atoms/applyField/UsernameField';
-import { KeywordField } from '../atoms/applyField/KeywordField';
-import { DateField } from '../atoms/applyField/DateField';
+import { ApplyUseLanguageField } from '../atoms/applyField/ApplyUseLanguageField';
+import { ApplyUsernameField } from '../atoms/applyField/ApplyUsernameField';
+import { ApplyKeywordField } from '../atoms/applyField/ApplyKeywordField';
+import { ApplyDateField } from '../atoms/applyField/ApplyDateField';
 
 
 export const ApplyNavigator: VFC = () => {
+
 	const navigate = useNavigate();
 
 	const onClickApplyButton = () => {
@@ -26,16 +27,16 @@ export const ApplyNavigator: VFC = () => {
 				</MainTitle>
 				<Grid container>
 					<Grid xs={6}>
-						<UseLanguageField />
+						<ApplyUseLanguageField />
 					</Grid>
 					<Grid xs={6}>
-						<UsernameField />
+						<ApplyUsernameField />
 					</Grid>
 					<Grid xs={6}>
-						<KeywordField />
+						<ApplyKeywordField />
 					</Grid>
 					<Grid xs={6}>
-						<DateField />
+						<ApplyDateField />
 					</Grid>
 					<Grid xs={6}>
 						<ButtonWrapper>

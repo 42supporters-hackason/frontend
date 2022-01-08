@@ -1,14 +1,15 @@
-import React, { useState, VFC } from 'react'
+import React, { useContext, useState, VFC } from 'react'
 import { Header } from '../organisms/Header'
 import styled from "styled-components"
 import { Button, Grid, TextField, Typography } from '@mui/material'
-import { DesktopDatePicker, LocalizationProvider } from '@mui/lab'
-import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import { useNavigate } from "react-router-dom"
+import { RecruteUseLanguage } from '../atoms/recruteField/RecruteUseLanguage'
+import { RecruteTitle } from '../atoms/recruteField/RecruteTitle'
+import { RecruteDateField } from '../atoms/recruteField/RecruteDateField'
 
 export const RecruteNavigator: VFC = () => {
-	const [dateValue, SetDateValue] = useState<Date | null>(null)
 	const navigate = useNavigate()
+	const [dateValue, SetDateValue] = useState<Date | null>(null)
 
 	const onChangeDateValue = (newValue: Date | null) => {
 		SetDateValue(newValue)
@@ -28,34 +29,17 @@ export const RecruteNavigator: VFC = () => {
 			<Grid container>
 				<Grid xs={6}>
 					<InputFieldWrapper>
-						<Typography>
-							使用する言語
-						</Typography>
-						<StyledTextField variant="outlined" label="使用する言語" />
+						<RecruteUseLanguage />
 					</InputFieldWrapper>
 				</Grid>
 				<Grid xs={6}>
 					<InputFieldWrapper>
-						<Typography>
-							キーワード
-						</Typography>
-						<StyledTextField variant="outlined" label="キーワード" />
+						<RecruteTitle />
 					</InputFieldWrapper>
 				</Grid>
 				<Grid xs={6}>
 					<InputFieldWrapper>
-						<Typography>
-							日時
-						</Typography>
-					<LocalizationProvider dateAdapter={AdapterDateFns}>
-						<DesktopDatePicker
-							label=""
-							inputFormat="MM/dd/yyyy"
-							value={dateValue}
-							onChange={onChangeDateValue}
-							renderInput={(params) => <TextField {...params} />}
-						/>
-					</LocalizationProvider>
+						<RecruteDateField />
 					</InputFieldWrapper>
 				</Grid>
 				<Grid xs={6}>
@@ -74,15 +58,16 @@ const RecruteNavigatorBackGround = styled.div`
 `
 
 const MainTitle = styled.div`
-	margin-top: 50px;
+	margin-top: 40px;
 	font-size: 25px;
 	border: 10px solid;
+	border-radius: 50px;
 	border-color: #FFD1D1;
 	padding: 15px;
 `
 
 const InputFieldWrapper = styled.div`
-	margin-top: 30px;
+	margin-top: 50px;
 `
 
 const StyledTextField = styled(TextField)`
