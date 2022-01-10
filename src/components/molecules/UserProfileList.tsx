@@ -22,6 +22,9 @@ export const UserProfileList: VFC<ProfileListType> = (props) => {
 
   return (
     <>
+      <Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
+      taisei yasui
+      </Typography>
       <Typography>{title}:</Typography>
       <ListItemButton onClick={() => setIsOpen(!isOpen)}>
         <ListItemIcon>

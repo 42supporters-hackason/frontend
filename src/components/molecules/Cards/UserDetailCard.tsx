@@ -1,31 +1,26 @@
 import { VFC, memo, useEffect } from 'react'
-import axios from "axios"
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import styled from "styled-components"
 import { UserProfileList } from '../UserProfileList';
-import { User } from "../../../interfase"
+import { useGetUsers } from '../../../hooks/useGetUsers';
 
 export const UserDetailCard: VFC = memo(() => {
+	const { getUser, users } = useGetUsers()
+
 	useEffect(() => {
-		axios.get<Array<User>>("https://blooming-woodland-93253.herokuapp.com/users")
-		.then((res: any) => {
-			console.log(res)
-		})
+		getUser()
 	}, [])
+
+	console.log(users)
+
 	return (
 		<>
 			<CardPosition>
 				<Card>
 					<CardContent>
-						<Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
-						taisei yasui
-						</Typography>
 						<CardCommentBackGround>
-							<UserProfileList title="プログラミング歴" listItemTitle="years of experience" listItem={["1年"]} />
-							<UserProfileList title="使える言語" listItemTitle="language (can use)" listItem={["Ruby", "Java"]} />
-							<UserProfileList title="得意な言語" listItemTitle="language (like)" listItem={["Ruby", "Java"]} />
+							<UserProfileList title="使える言語" listItemTitle="language (can use)" listItem={['C言語']} />
 						</CardCommentBackGround>
 					</CardContent>
 				</Card>
