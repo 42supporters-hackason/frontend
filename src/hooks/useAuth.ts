@@ -12,6 +12,7 @@ export const useAuth = () => {
 		.then((res) => {
 			console.log(res)
 			if (res.data) {
+				localStorage.setItem("id", id)
 				setLoginId(id)
 				navigate("/home")
 			} else {
