@@ -1,26 +1,23 @@
-import { VFC, useState } from 'react'
+import { VFC } from 'react'
 import { Header } from '../organisms/Header'
 import styled from "styled-components"
-import { Grid, TextField } from '@mui/material'
-import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import Typography from '@mui/material/Typography';
+import { Grid } from '@mui/material'
 import { Button } from '@mui/material'
 import { useNavigate } from "react-router-dom"
+import { ApplyUseLanguageField } from '../atoms/applyField/ApplyUseLanguageField';
+import { ApplyUsernameField } from '../atoms/applyField/ApplyUsernameField';
+import { ApplyKeywordField } from '../atoms/applyField/ApplyKeywordField';
+import { ApplyDateField } from '../atoms/applyField/ApplyDateField';
 
 
 export const ApplyNavigator: VFC = () => {
-	const [dateValue, SetDateValue] = useState<Date | null>(null)
-	const navigate = useNavigate()
 
-	const onChangeDateValue = (newValue: Date | null) => {
-		SetDateValue(newValue)
-	}
+	const navigate = useNavigate();
 
 	const onClickApplyButton = () => {
 		navigate('/apply/detail')
 	}
+
 	return (
 		<>
 			<Header />
@@ -30,50 +27,21 @@ export const ApplyNavigator: VFC = () => {
 				</MainTitle>
 				<Grid container>
 					<Grid xs={6}>
-						<InputFieldWrapper>
-							<Typography>
-								使用する言語
-							</Typography>
-							<StyledTextField variant="outlined" label="使用する言語" />
-						</InputFieldWrapper>
+						<ApplyUseLanguageField />
 					</Grid>
 					<Grid xs={6}>
-						<InputFieldWrapper>
-							<Typography>
-								ユーザ名
-							</Typography>
-							<StyledTextField variant="outlined" label="ユーザ名" />
-						</InputFieldWrapper>
+						<ApplyUsernameField />
 					</Grid>
 					<Grid xs={6}>
-						<InputFieldWrapper>
-							<Typography>
-								キーワード
-							</Typography>
-							<StyledTextField variant="outlined" label="キーワード" />
-						</InputFieldWrapper>
+						<ApplyKeywordField />
 					</Grid>
 					<Grid xs={6}>
-						<InputFieldWrapper>
-							<Typography>
-								日時
-							</Typography>
-						<LocalizationProvider dateAdapter={AdapterDateFns}>
-							<DesktopDatePicker
-								label=""
-								inputFormat="MM/dd/yyyy"
-								value={dateValue}
-								onChange={onChangeDateValue}
-								renderInput={(params) => <TextField {...params} />}
-							/>
-						</LocalizationProvider>
-						</InputFieldWrapper>
+						<ApplyDateField />
 					</Grid>
-					<Grid xs={6}></Grid>
 					<Grid xs={6}>
-						<InputFieldWrapper>
+						<ButtonWrapper>
 							<Button variant="outlined" onClick={onClickApplyButton} >絞り込む</Button>
-						</InputFieldWrapper>
+						</ButtonWrapper>
 					</Grid>
 				</Grid>
 			</ApplyNavigatorBackGround>
@@ -86,18 +54,14 @@ const ApplyNavigatorBackGround = styled.div`
 `
 
 const MainTitle = styled.div`
-	margin-top: 50px;
+	margin: 40px;
 	font-size: 25px;
 	border: 10px solid;
 	border-color: #D1D3FF;
+	border-radius: 50px;
 	padding: 15px;
 `
 
-const InputFieldWrapper = styled.div`
-	margin-top: 30px;
+const ButtonWrapper = styled.div`
+	margin-top: 60px;
 `
-
-const StyledTextField = styled(TextField)`
-	width: 300px
-`
-

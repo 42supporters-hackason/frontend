@@ -1,12 +1,17 @@
 import styled from "styled-components"
 import { ApplyDetailCard } from '../../molecules/Cards/ApplyDetailCard';
 
-const tmp: number[] = [1, 2, 3]
+const applyData = [
+	{
+		username: "鈴木　一郎",
+		postComment: "Reactが勉強したいです",
+	}
+]
 
 export const ApplyDetailCardsList = () => {
 	return (
 		<>
-			{tmp.map(() => {
+			{applyData.map(() => {
 				return <ApplyDetailCard />
 			})}
 		</>

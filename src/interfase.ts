@@ -11,3 +11,18 @@ export type User = {
 		skill: string;
 	}[];
 }
+
+export type postDataType = {
+	id: number;
+	title: string;
+	beginTime: Date;
+	endTime: Date;
+	driverId: number;
+	username: string;
+	navigatorId: number;
+	otherSkill: string;
+	requiredSkill: {
+		id: number;
+		skill: string;
+	}[];
+}
