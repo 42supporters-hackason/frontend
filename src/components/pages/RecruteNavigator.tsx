@@ -33,7 +33,7 @@ export const RecruteNavigator: VFC = () => {
   const handleClose = () => setOpen(false);
 
 	const onClickRecruteButton = () => {
-		navigate('/')
+		navigate('/home')
 	}
 
 	const onClickOpenModal = () => {

@@ -14,6 +14,8 @@ export const useAuth = () => {
 			if (res.data) {
 				setLoginId(id)
 				navigate("/home")
+			} else {
+				alert("userが見つかりません")
 			}
 		})
 	}, [])
