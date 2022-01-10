@@ -57,7 +57,7 @@ export const Header = () => {
   const navigate = useNavigate()
 
   const onClickBackToHome = () => {
-    navigate("/")
+    navigate("/home")
   }
 
   return (

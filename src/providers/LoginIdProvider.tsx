@@ -1,11 +1,19 @@
-import React from 'react'
-import constate from "constate"
+import React, { ReactNode, useState } from "react";
+import constate from "constate";
 
-export const LoginIdProvider = () => {
-	return (
-		<div>
+export const [
+  ConstateLoginIdProvider,
+  useLoginIdContext,
+  useSetLoginIdContext,
+] = constate(
+  () => {
+    const [loginId, setLoginId] = useState<string>("");
+    return { loginId, setLoginId };
+  },
+  (value) => value.loginId,
+  (value) => value.setLoginId
+);
 
-		</div>
-	)
-}
-
+export const LoginIdProvider = (props: { children: ReactNode }) => {
+  return <ConstateLoginIdProvider>{props.children}</ConstateLoginIdProvider>;
+};

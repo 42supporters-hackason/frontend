@@ -36,11 +36,11 @@ const theme = createTheme();
 
 export const Login = () => {
 	const { login } = useAuth()
-	const [loginId, setLoginId] = React.useState<string>("")
+	const [id, setId] = React.useState<string>("")
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-		login(loginId)
+		login(id)
   };
 
   return (
@@ -76,7 +76,7 @@ export const Login = () => {
               name="id"
               autoComplete="id"
               autoFocus
-							onChange={(e) => setLoginId(e.target.value)}
+							onChange={(e) => setId(e.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

@@ -13,30 +13,9 @@ export const Router: VFC = () => {
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/home" element={<Home />} />
-      <Route
-        path="/recrute"
-        element={
-          <RecrutePostProvider>
-            <RecruteNavigator />
-          </RecrutePostProvider>
-        }
-      />
-      <Route
-        path="/apply"
-        element={
-          <ApplyPostProvider>
-            <ApplyNavigator />
-          </ApplyPostProvider>
-        }
-      />
-      <Route
-        path="/apply/detail"
-        element={
-          <ApplyPostProvider>
-            <ApplyDetail />
-          </ApplyPostProvider>
-        }
-      />
+      <Route path="/recrute" element={<RecruteNavigator />} />
+      <Route path="/apply" element={<ApplyNavigator />} />
+      <Route path="/apply/detail" element={<ApplyDetail />} />
     </Routes>
   );
 };
