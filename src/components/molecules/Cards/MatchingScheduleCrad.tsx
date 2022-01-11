@@ -16,11 +16,11 @@ const startDate = new Date("December 17, 1995 03:24:00");
 const endDate = new Date("December 17, 1995 03:28:00");
 
 export const MatchingScheduleCrad = (props: PropsType) => {
-  const { username, title, isNavigator } = props;
+  const { username, title, isNavigator } = props
 
   return (
     <>
-      <CardWrapper isNavigator={isNavigator}>
+      <CardWrapper isNavigator={isNavigator} >
         <Card sx={{ minWidth: 275 }}>
           <CardContent>
             <Typography
@@ -45,7 +45,7 @@ export const MatchingScheduleCrad = (props: PropsType) => {
 };
 
 type isNavigatorType = {
-  isNavigator: boolean;
+  isNavigator: boolean
 };
 
 const CardWrapper = styled.div<isNavigatorType>`

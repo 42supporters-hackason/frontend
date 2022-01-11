@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { postDataType } from "./../interfase";
 import axios from "axios";
-import { useLoginIdContext } from "../providers/LoginIdProvider"
 
 type postDataAndIsnavigatorType = postDataType & {
 	isNavigator: boolean;

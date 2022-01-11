@@ -1,9 +1,6 @@
-import { postDataType } from "../../../interfase";
+import { useEffect } from "react";
 import { MatchingScheduleCrad } from "../../molecules/Cards/MatchingScheduleCrad";
 import { useGetAllPosts } from "../../../hooks/useGetAllPosts"
-import { useEffect } from "react";
-
-const isNavigator = false;
 
 export const MatchScheduleCardsList = () => {
   const { getAllPosts, allPosts } = useGetAllPosts()
@@ -12,18 +9,17 @@ export const MatchScheduleCardsList = () => {
     getAllPosts()
   }, [])
 
-  console.log(allPosts)
-
   return (
     <>
       {allPosts.map((item) => {
-        {item.isMyRelatedPost ? (
+        return (
           <MatchingScheduleCrad
+            key={item.id}
             username={item.authorName}
             title={item.title}
             isNavigator={item.isNavigator}
           />
-        ): <></>}
+        )
       }
       )}
     </>

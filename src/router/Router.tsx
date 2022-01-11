@@ -5,8 +5,6 @@ import { ApplyNavigator } from "../components/pages/ApplyNavigator";
 import { Home } from "../components/pages/Home";
 import { Login } from "../components/pages/Login";
 import { RecruteNavigator } from "../components/pages/RecruteNavigator";
-import { ApplyPostProvider } from "../providers/ApplyPostProvider";
-import { RecrutePostProvider } from "../providers/RecrutePostProvider";
 
 export const Router: VFC = () => {
   return (
