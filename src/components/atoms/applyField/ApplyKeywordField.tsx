@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { TextField } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import {
-  ApplyKeywordContext,
   SetApplyKeywordContext,
 } from "../../../providers/ApplyPostProvider";
 

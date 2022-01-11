@@ -18,7 +18,7 @@ export type postDataType = {
 	beginTime: Date;
 	endTime: Date;
 	driverId: number;
-	username: string;
+	authorName: string;
 	navigatorId: number;
 	otherSkill: string;
 	requiredSkill: {

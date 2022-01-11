@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import { ApplyDetailCard } from '../../molecules/Cards/ApplyDetailCard';
 
 const applyData = [

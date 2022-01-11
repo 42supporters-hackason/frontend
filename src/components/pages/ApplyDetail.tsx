@@ -11,7 +11,7 @@ export const ApplyDetail: VFC = () => {
 	const navigate = useNavigate()
 
 	const onClickApplyNavigator = () => {
-		navigate('/')
+		navigate('/home')
 	}
 
 	return (
