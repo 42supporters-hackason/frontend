@@ -1,10 +1,13 @@
 import React, { useCallback, useState } from 'react'
 import axios from "axios";
 import { User } from "../interfase"
+import { useSetLoginUsernameContext } from '../providers/LoginUsernameProvider';
 
 export const useGetUsers = () => {
 	const [users, setUsers] = useState<User[] | undefined>([])
 	const [isLoading, setIsLoading] = useState(false)
+
+
 	const getUser = useCallback(() => {
 		setIsLoading(true)
 

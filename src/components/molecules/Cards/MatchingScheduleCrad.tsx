@@ -27,7 +27,7 @@ export const MatchingScheduleCrad = (props: PropsType) => {
               color="text.secondary"
               gutterBottom
             >
-              {username}
+              navigator: {username}
             </Typography>
             <CardCommentBackGround>{title}</CardCommentBackGround>
             <Typography sx={{ fontSize: 20 }} color="text.primary">

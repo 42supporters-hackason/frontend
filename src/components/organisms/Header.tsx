@@ -12,6 +12,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import { useNavigate } from "react-router-dom"
+import { useLoginUsernameContext } from '../../providers/LoginUsernameProvider';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -55,6 +56,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export const Header = () => {
   const navigate = useNavigate()
+  const loginUsername = useLoginUsernameContext()
 
   const onClickBackToHome = () => {
     navigate("/home")
@@ -86,6 +88,16 @@ export const Header = () => {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
+          <Typography
+            variant="h5"
+            color="black"
+            noWrap
+            component="div"
+            sx={{ display: { xs: 'none', sm: 'block' } }}
+            fontFamily="Corben"
+          >
+            user: {loginUsername}
+          </Typography>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton
               size="large"
