@@ -12,33 +12,36 @@ type PropsType = {
   beginTime: Date;
   endTime: Date;
   isNavigator: boolean;
+  isMyRelatedPost: boolean;
 };
 
 export const MatchingScheduleCrad = (props: PropsType) => {
-  const { username, title, beginTime, endTime, isNavigator } = props
+  const { username, title, beginTime, endTime, isNavigator, isMyRelatedPost } = props
 
   return (
     <>
-      <CardWrapper isNavigator={isNavigator} >
-        <Card sx={{ minWidth: 275 }}>
-          <CardContent>
-            <Typography
-              sx={{ fontSize: 20 }}
-              color="text.secondary"
-              gutterBottom
-            >
-              navigator: {username}
-            </Typography>
-            <CardCommentBackGround>{title}</CardCommentBackGround>
-            <Typography sx={{ fontSize: 20 }} color="text.primary">
-              {moment(beginTime).format("MMMM Do, h:mm a").toString()}   ~    {moment(endTime).format("MMMM Do, h:mm a").toString()}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button>Profile</Button>
-          </CardActions>
-        </Card>
-      </CardWrapper>
+      {isMyRelatedPost ? (
+        <CardWrapper isNavigator={isNavigator} >
+          <Card sx={{ minWidth: 275 }}>
+            <CardContent>
+              <Typography
+                sx={{ fontSize: 20 }}
+                color="text.secondary"
+                gutterBottom
+              >
+                navigator: {username}
+              </Typography>
+              <CardCommentBackGround>{title}</CardCommentBackGround>
+              <Typography sx={{ fontSize: 20 }} color="text.primary">
+                {moment(beginTime).format("MMMM Do, h:mm a").toString()}   ~    {moment(endTime).format("MMMM Do, h:mm a").toString()}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button>Profile</Button>
+            </CardActions>
+          </Card>
+        </CardWrapper>
+      ): (<></>)}
     </>
   );
 };

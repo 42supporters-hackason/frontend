@@ -20,6 +20,7 @@ export const MatchScheduleCardsList = () => {
             beginTime={item.beginTime}
             endTime={item.endTime}
             isNavigator={item.isNavigator}
+            isMyRelatedPost={item.isMyRelatedPost}
           />
         )
       }
