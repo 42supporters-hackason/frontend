@@ -9,14 +9,13 @@ import moment from "moment";
 type PropsType = {
   username: string;
   title: string;
+  beginTime: Date;
+  endTime: Date;
   isNavigator: boolean;
 };
 
-const startDate = new Date("December 17, 1995 03:24:00");
-const endDate = new Date("December 17, 1995 03:28:00");
-
 export const MatchingScheduleCrad = (props: PropsType) => {
-  const { username, title, isNavigator } = props
+  const { username, title, beginTime, endTime, isNavigator } = props
 
   return (
     <>
@@ -32,7 +31,7 @@ export const MatchingScheduleCrad = (props: PropsType) => {
             </Typography>
             <CardCommentBackGround>{title}</CardCommentBackGround>
             <Typography sx={{ fontSize: 20 }} color="text.primary">
-              {moment(startDate).format("MMMM Do, h:mm a").toString()}   ~    {moment(endDate).format("MMMM Do, h:mm a").toString()}
+              {moment(beginTime).format("MMMM Do, h:mm a").toString()}   ~    {moment(endTime).format("MMMM Do, h:mm a").toString()}
             </Typography>
           </CardContent>
           <CardActions>

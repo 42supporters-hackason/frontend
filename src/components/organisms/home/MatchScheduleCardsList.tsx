@@ -17,6 +17,8 @@ export const MatchScheduleCardsList = () => {
             key={item.id}
             username={item.authorName}
             title={item.title}
+            beginTime={item.beginTime}
+            endTime={item.endTime}
             isNavigator={item.isNavigator}
           />
         )
