@@ -1,44 +1,65 @@
-import React, { useState } from 'react'
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import styled from "styled-components"
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import styled from "styled-components";
+import moment from "moment";
 
-export const ApplyDetailCard = () => {
-	const [isClick, setIsClick] = useState<boolean>(false)
+type PropsType = {
+	id: number;
+  username: string;
+  title: string;
+  beginTime: Date;
+  endTime: Date;
+  isMyRelatedPost: boolean;
+	onClickId: number | undefined;
+	setOnClickId: React.Dispatch<React.SetStateAction<number | undefined>>
+};
+
+export const ApplyDetailCard = (props: PropsType) => {
+  const { id, username, title, beginTime, endTime, isMyRelatedPost, onClickId, setOnClickId } = props
 
 	const onClickCard = () => {
-		setIsClick(!isClick)
+		if (onClickId === undefined){
+			setOnClickId(id)
+		} else {
+			setOnClickId(undefined)
+		}
 	}
+
 	return (
-		<CardWrapper isClick={isClick} >
-			<Card sx={{ minWidth: 275 }} onClick={onClickCard} >
-			<CardContent>
-				<Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
-				taisei yasui
-				</Typography>
-				<CardCommentBackGround>
-					ApplyDetailです
-				</CardCommentBackGround>
-			</CardContent>
-			<CardActions>
-				<Button>Profile</Button>
-			</CardActions>
-			</Card>
-		</CardWrapper>
+		<>
+      {!isMyRelatedPost ? (
+        <CardWrapper onClickId={onClickId} postId={id} >
+          <Card sx={{ minWidth: 275 }} onClick={onClickCard}>
+            <CardContent>
+              <Typography
+                sx={{ fontSize: 20 }}
+                color="text.secondary"
+                gutterBottom
+              >
+                navigator: {username}
+              </Typography>
+              <CardCommentBackGround>{title}</CardCommentBackGround>
+              <Typography sx={{ fontSize: 20 }} color="text.primary">
+                {moment(beginTime).format("MMMM Do, h:mm a").toString()}   ~    {moment(endTime).format("MMMM Do, h:mm a").toString()}
+              </Typography>
+            </CardContent>
+          </Card>
+        </CardWrapper>
+      ): (<></>)}
+		</>
 	)
 }
 
-type CardWrapperProps = {
-	isClick: boolean;
+type cardwrapperprops = {
+	postId: number;
+	onClickId: number | undefined;
 }
 
-const CardWrapper = styled.div<CardWrapperProps>`
+const CardWrapper = styled.div<cardwrapperprops>`
   margin: 20px 100px 10px 50px;
   border: ${props =>
-	props.isClick ? 'solid 3px #D1D3FF' : 'none'
+	props.onClickId == props.postId ? 'solid 3px #D1D3FF' : 'none'
   }
 `
 
@@ -50,4 +71,3 @@ const CardCommentBackGround = styled.div`
   border-radius: 5px;
   padding: 15px;
 `
-

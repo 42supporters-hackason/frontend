@@ -1,4 +1,4 @@
-import { VFC } from 'react'
+import { useState, VFC } from 'react'
 import { ApplyDetailCardsList } from '../organisms/apply/ApplyDetailCardsList'
 import { Header } from '../organisms/Header'
 import Grid from "@mui/material/Grid"
@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom"
 
 export const ApplyDetail: VFC = () => {
 	const navigate = useNavigate()
+	const [onClickId, setOnClickId] = useState<number | undefined>(undefined)
+	console.log(onClickId)
 
 	const onClickApplyNavigator = () => {
 		navigate('/home')
@@ -19,7 +21,7 @@ export const ApplyDetail: VFC = () => {
 			<Header />
 			<Grid container>
 				<Grid xs={8}>
-					<ApplyDetailCardsList />
+					<ApplyDetailCardsList onClickId={onClickId} setOnClickId={setOnClickId} />
 				</Grid>
 				<Grid xs={4}>
 					<UserDetailCard />
