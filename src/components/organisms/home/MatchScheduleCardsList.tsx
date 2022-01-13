@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { MatchingScheduleCrad } from "../../molecules/Cards/MatchingScheduleCrad";
-import { useGetAllPosts } from "../../../hooks/useGetAllPosts"
+import { useGetAllPosts } from "../../../hooks/useGetAllPosts";
 
 export const MatchScheduleCardsList = () => {
-  const { getAllPosts, allPosts } = useGetAllPosts()
+  const { getAllPosts, allPosts } = useGetAllPosts();
 
   useEffect(() => {
-    getAllPosts()
-  }, [])
+    getAllPosts();
+  }, []);
 
   return (
     <>
@@ -20,10 +20,10 @@ export const MatchScheduleCardsList = () => {
             beginTime={item.beginTime}
             endTime={item.endTime}
             isNavigator={item.isNavigator}
+            isMyRelatedPost={item.isMyRelatedPost}
           />
-        )
-      }
-      )}
+        );
+      })}
     </>
   );
 };

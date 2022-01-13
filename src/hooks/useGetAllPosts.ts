@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { postDataType } from "./../interfase";
 import axios from "axios";
 
@@ -25,7 +25,6 @@ export const useGetAllPosts = () => {
 					if (loginId === String(item.navigatorId) || loginId === String(item.driverId)) {
 						isMyRelatedPost = true
 					}
-					console.log(loginId)
 					tmpArray.push({
 						id: item.id,
 						title: item.title,

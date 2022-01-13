@@ -1,18 +1,37 @@
-import { ApplyDetailCard } from '../../molecules/Cards/ApplyDetailCard';
+import { useEffect } from "react";
+import { ApplyDetailCard } from "../../molecules/Cards/ApplyDetailCard";
+import { useGetAllPosts } from "../../../hooks/useGetAllPosts";
 
-const applyData = [
-	{
-		username: "鈴木　一郎",
-		postComment: "Reactが勉強したいです",
-	}
-]
-
-export const ApplyDetailCardsList = () => {
-	return (
-		<>
-			{applyData.map(() => {
-				return <ApplyDetailCard />
-			})}
-		</>
-	)
+type PropsType = {
+	onClickId: number | undefined;
+	setOnClickId: React.Dispatch<React.SetStateAction<number | undefined>>
 }
+
+export const ApplyDetailCardsList = (props: PropsType) => {
+	const { onClickId, setOnClickId } = props;
+  const { getAllPosts, allPosts } = useGetAllPosts();
+
+  useEffect(() => {
+    getAllPosts();
+  }, []);
+
+  return (
+    <>
+      {allPosts.map((item) => {
+        return (
+          <ApplyDetailCard
+            key={item.id}
+						id={item.id}
+            username={item.authorName}
+            title={item.title}
+            beginTime={item.beginTime}
+            endTime={item.endTime}
+            isMyRelatedPost={item.isMyRelatedPost}
+						onClickId={onClickId}
+						setOnClickId={setOnClickId}
+          />
+        );
+      })}
+    </>
+  );
+};
