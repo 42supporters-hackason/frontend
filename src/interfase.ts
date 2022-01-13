@@ -3,7 +3,7 @@ export type User = {
 	name: string;
 	mail: string;
 	evaluationPoint: number;
-	icon: File;
+	icon: File | undefined;
 	otherSkill: string;
 	postID: number[];
 	userSkills: {

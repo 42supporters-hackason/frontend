@@ -30,7 +30,7 @@ export const ApplyDetail: VFC = () => {
 				requiredSkill: res.data.requiredSkill,
 			}
 			console.log(tmpPost)
-			//await axios.post(`https://peerprogramming.herokuapp.com/posts/${onClickId}`, {tmpPost})
+			//await axios.put(`https://peerprogramming.herokuapp.com/posts/${onClickId}`, {tmpPost})
 			//.then((res) => {
 			//	console.log(res)
 			//})

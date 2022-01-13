@@ -1,12 +1,12 @@
 import { BrowserRouter } from "react-router-dom"
 import { ApplyPostProvider } from "./providers/ApplyPostProvider";
-import { LoginIdProvider } from "./providers/LoginUsernameProvider";
+import { LoginUserProvider } from "./providers/LoginUserProvider";
 import { RecrutePostProvider } from "./providers/RecrutePostProvider";
 import { Router } from "./router/Router"
 
 function App() {
   return (
-    <LoginIdProvider>
+    <LoginUserProvider>
       <RecrutePostProvider>
         <ApplyPostProvider>
           <BrowserRouter>
@@ -14,7 +14,7 @@ function App() {
           </BrowserRouter>
         </ApplyPostProvider>
       </RecrutePostProvider>
-    </LoginIdProvider>
+    </LoginUserProvider>
   );
 }
 
