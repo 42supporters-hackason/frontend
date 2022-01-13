@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import http from "../http-common"
 import React, { useCallback } from 'react'
 import { useSetLoginUsernameContext, useSetLoginUserAvatorContext } from '../providers/LoginUserProvider';
 
@@ -9,7 +9,7 @@ export const useAuth = () => {
 	const setLoginUserAvator = useSetLoginUserAvatorContext()
 
 	const login = useCallback((id: string) => {
-		axios.get(`https://peerprogramming.herokuapp.com/users/${id}`)
+		http.get(`/users/${id}`)
 		.then((res) => {
 			console.log(res)
 			if (res.data) {

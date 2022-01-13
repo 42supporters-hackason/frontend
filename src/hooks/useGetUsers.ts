@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
-import axios from "axios";
 import { User } from "../interfase"
-import { useSetLoginUsernameContext } from '../providers/LoginUserProvider';
+import http from "../http-common"
+
 
 export const useGetUsers = () => {
 	const [users, setUsers] = useState<User[] | undefined>([])
@@ -11,7 +11,7 @@ export const useGetUsers = () => {
 	const getUser = useCallback(() => {
 		setIsLoading(true)
 
-		axios.get<Array<User>>("https://peerprogramming.herokuapp.com/users")
+		http.get<Array<User>>("/users")
 		.then((res: any) => {
 			let tmpArray: User[] = []
 			console.log(res)

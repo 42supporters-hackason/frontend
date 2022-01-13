@@ -6,8 +6,8 @@ import { UserDetailCard } from '../molecules/Cards/UserDetailCard'
 import { Button } from '@mui/material'
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom"
-import axios from 'axios'
 import { postDataType } from "../../interfase"
+import http from "../../http-common"
 
 export const ApplyDetail: VFC = () => {
 	const navigate = useNavigate()
@@ -16,7 +16,7 @@ export const ApplyDetail: VFC = () => {
 	console.log(onClickId)
 
 	const onClickApplyNavigator = async () => {
-		await axios.get<postDataType>(`https://peerprogramming.herokuapp.com/posts/${onClickId}`)
+		await http.get<postDataType>(`/posts/${onClickId}`)
 		.then(async (res) => {
 			let tmpPost: postDataType = {
 				id: res.data.id,
