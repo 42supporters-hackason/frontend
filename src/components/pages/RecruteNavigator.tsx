@@ -15,6 +15,8 @@ import {
   useRecruteUseLanguageContext,
 } from "../../providers/RecrutePostProvider";
 import moment from "moment";
+import axios from "axios";
+import { useLoginUsernameContext } from "../../providers/LoginUserProvider";
 
 const style = {
   position: "absolute" as "absolute",
@@ -34,10 +36,31 @@ export const RecruteNavigator: VFC = () => {
   const recruteUseLanguage = useRecruteUseLanguageContext();
   const recruteStartDate = useRecruteStartDateContext();
   const recruteEndDate = useRecruteEndDateContext();
+  const loginUsername = useLoginUsernameContext()
+  const loginId = localStorage.getItem('id')
+
   const [open, setOpen] = useState<boolean>(false);
   const handleClose = () => setOpen(false);
 
-  const onClickRecruteButton = () => {
+  const onClickRecruteButton = async () => {
+    const data = {
+      title: recruteTitle,
+      beginTime: recruteStartDate,
+      endTime: recruteEndDate,
+      driverId: loginId,
+      authorName: loginUsername,
+      navigatorId: 0,
+      otherSkill: "",
+      requiredSkill: [{
+        id: 0,
+        skill: ""
+      }]
+    }
+    await axios.post("https://peerprogramming.herokuapp.com/posts/", data)
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((res) => console.log(res))
     navigate("/home");
   };
 

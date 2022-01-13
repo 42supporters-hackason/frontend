@@ -11,7 +11,6 @@ import { ApplyDateField } from '../atoms/applyField/ApplyDateField';
 
 
 export const ApplyNavigator: VFC = () => {
-
 	const navigate = useNavigate();
 
 	const onClickApplyButton = () => {

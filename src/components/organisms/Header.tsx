@@ -16,7 +16,8 @@ import {
   useLoginUsernameContext,
   useLoginUserAvatorContext,
 } from "../../providers/LoginUserProvider";
-import { Avatar } from "@mui/material";
+import { Avatar, makeStyles, withStyles } from "@mui/material";
+import avatar from "../../img/icon_sample.png"
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -61,13 +62,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const Header = () => {
   const navigate = useNavigate();
   const loginUsername = useLoginUsernameContext();
-  const loginUserAvator = useLoginUserAvatorContext();
 
   const onClickBackToHome = () => {
     navigate("/home");
   };
 
-  console.log(loginUserAvator)
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -132,15 +131,11 @@ export const Header = () => {
               aria-haspopup="true"
               color="default"
             >
-              <AccountCircle />
+              <Avatar
+                src={avatar}
+                sx={{ width: 50, height: 50 }}
+              />
             </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <Avatar
-              alt="icon"
-              src=""
-              sx={{ width: 24, height: 24 }}
-            />
           </Box>
         </Toolbar>
       </AppBar>
