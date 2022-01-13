@@ -59,7 +59,7 @@ type cardwrapperprops = {
 const CardWrapper = styled.div<cardwrapperprops>`
   margin: 20px 100px 10px 50px;
   border: ${props =>
-	props.onClickId == props.postId ? 'solid 3px #D1D3FF' : 'none'
+	props.onClickId === props.postId ? 'solid 3px #D1D3FF' : 'none'
   }
 `
 

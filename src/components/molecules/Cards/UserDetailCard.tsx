@@ -1,18 +1,10 @@
-import { VFC, memo, useEffect } from 'react'
+import { memo } from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import styled from "styled-components"
 import { UserProfileList } from '../UserProfileList';
-import { useGetUsers } from '../../../hooks/useGetUsers';
 
-export const UserDetailCard: VFC = memo(() => {
-	const { getUser, users } = useGetUsers()
-
-	useEffect(() => {
-		getUser()
-	}, [])
-
-	console.log(users)
+export const UserDetailCard = memo(() => {
 
 	return (
 		<>
@@ -20,7 +12,8 @@ export const UserDetailCard: VFC = memo(() => {
 				<Card>
 					<CardContent>
 						<CardCommentBackGround>
-							<UserProfileList title="使える言語" listItemTitle="language (can use)" listItem={['C言語']} />
+							<UserProfileList title="使える言語" listItemTitle="language (can use)" listItem={['C言語', 'Go', 'Ruby', 'TypeScript']} />
+							<UserProfileList title="所持しているポイント" listItemTitle="evaluation point" listItem={['5']} />
 						</CardCommentBackGround>
 					</CardContent>
 				</Card>
