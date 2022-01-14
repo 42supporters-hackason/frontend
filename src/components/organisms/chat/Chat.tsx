@@ -37,15 +37,15 @@ export const Chat = () => {
 					2021.11.8:12:42
 				</TimeLeftField>
 				<ChatRight>
-					わかりました!<br />ありがとうございます！
+					わかりました!
 				</ChatRight>
 				<TimeRightField>
 					2021.11.8:13:30
 				</TimeRightField>
 				<TextFieldWrapper>
-					<TextField style={{width: 500}} />
+					<TextField style={{width: 350, height: 25}} />
 					<IconButton >
-						<SendIcon style={{width: 40, height: 40, marginLeft: 10}} />
+						<SendIcon style={{width: 30, height: 40, marginLeft: 15}} />
 					</IconButton>
 				</TextFieldWrapper>
 			</ChatWrapper>
@@ -62,8 +62,8 @@ const MainTitle = styled.h3`
 
 const ChatWrapper = styled.div`
 	margin-top: 20px;
-	width: 600px;
-	height: 700px;
+	width: 450px;
+	height: 550px;
 	border-radius: 50px;
 	background-color: white;
 	padding: 10px;
@@ -72,8 +72,8 @@ const ChatWrapper = styled.div`
 const ChatRight = styled.div`
 	background-color: #F0F8FF;
 	border-radius: 25px;
-	margin-left: 250px;
-	margin-top: 30px;
+	margin-left: 175px;
+	margin-top: 15px;
 	padding: 10px;
 	display: flex;
 	justify-content: center;
@@ -82,25 +82,25 @@ const ChatRight = styled.div`
 const ChatLeft = styled.div`
 	background-color: #ffffe0;
 	border-radius: 25px;
-	margin-left: 25px;
-	margin-right: 250px;
-	margin-top: 30px;
+	margin-left: 10px;
+	margin-right: 175px;
+	margin-top: 15px;
 	padding: 10px;
 	display: flex;
 	justify-content: center;
 `
 
 const TimeRightField = styled.span`
-	font-size: 13px;
+	font-size: 10px;
 	margin-left: 20px;
 `
 
 const TimeLeftField = styled.span`
-	margin-left: 475px;
-	font-size: 13px;
+	margin-left: 350px;
+	font-size: 10px;
 `
 
 const TextFieldWrapper = styled.div`
-	margin-top: 100px;
-	margin-left: 30px;
+	margin-top: 20px;
+	margin-left: 20px;
 `
