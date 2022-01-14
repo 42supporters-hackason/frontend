@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import axios from "axios";
+import http from "../http-common"
 import { User } from "../interfase"
 
 export const useGetSpecificUser = () => {
@@ -10,7 +10,7 @@ export const useGetSpecificUser = () => {
 	const getSpecificUser = useCallback(async (id: number | undefined) => {
 		setIsLoading(true)
 
-		await axios.get<Array<User>>(`https://peerprogramming.herokuapp.com/users/${id}`)
+		await http.get<Array<User>>(`/users/${id}`)
 		.then((res: any) => {
 			setSpecificUser({
 					id: res.data.id,

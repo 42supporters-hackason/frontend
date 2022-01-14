@@ -1,12 +1,14 @@
-import { VFC } from 'react'
+import { useState, VFC } from 'react'
 import { Header } from "../organisms/Header"
 import styled from "styled-components"
 import Grid from "@mui/material/Grid"
 import { MatchScheduleCardsList } from '../organisms/home/MatchScheduleCardsList'
 import { MoveToApply } from '../organisms/apply/MoveToApply'
 import { MoveToRecrute } from '../organisms/recrute/MoveToRecrute'
+import { Chat } from '../organisms/chat/Chat'
 
 export const Home: VFC = () => {
+	const [isOpenChat, setIsOpenChat] = useState(false)
 	return (
 		<BackGround>
 			<Header />
@@ -15,14 +17,20 @@ export const Home: VFC = () => {
 					<MatchingTitle>
 						Matchingの予定
 					</MatchingTitle>
-					<MatchScheduleCardsList/>
+					<MatchScheduleCardsList setIsOpenChat={setIsOpenChat} isOpenChat={isOpenChat} />
 				</Grid>
 				<Grid item xs={4}>
-					<MatchingRouteTitle>
-						Matchingする
-					</MatchingRouteTitle>
-					<MoveToRecrute />
-					<MoveToApply />
+					{isOpenChat ? (
+						<Chat />
+					): (
+						<>
+							<MatchingRouteTitle>
+								Matchingする
+							</MatchingRouteTitle>
+							<MoveToRecrute />
+							<MoveToApply />
+						</>
+					)}
 				</Grid>
 			</Grid>
 		</BackGround>

@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { postDataType } from "./../interfase";
-import axios from "axios";
+import http from "../http-common"
 
 type postDataAndIsnavigatorType = postDataType & {
 	isNavigator: boolean;
@@ -13,8 +13,8 @@ export const useGetAllPosts = () => {
   const getAllPosts = useCallback(async () => {
 		let tmpArray: postDataAndIsnavigatorType[] = []
 		const loginId = localStorage.getItem("id")
-    await axios
-      .get<postDataType[]>("https://peerprogramming.herokuapp.com/posts")
+    await http
+      .get<postDataType[]>("/posts")
       .then((res) => {
 				res.data.map((item) => {
 					let isNavigator = false

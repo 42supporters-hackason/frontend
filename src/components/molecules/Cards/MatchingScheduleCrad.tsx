@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styled from "styled-components";
 import moment from "moment";
+import { Dispatch, SetStateAction } from "react";
 
 type PropsType = {
   username: string;
@@ -13,15 +14,26 @@ type PropsType = {
   endTime: Date;
   isNavigator: boolean;
   isMyRelatedPost: boolean;
+  isOpenChat: boolean;
+  setIsOpenChat: Dispatch<SetStateAction<boolean>>;
 };
 
 export const MatchingScheduleCrad = (props: PropsType) => {
-  const { username, title, beginTime, endTime, isNavigator, isMyRelatedPost } = props
+  const {
+    username,
+    title,
+    beginTime,
+    endTime,
+    isNavigator,
+    isMyRelatedPost,
+    isOpenChat,
+    setIsOpenChat,
+  } = props;
 
   return (
     <>
       {isMyRelatedPost ? (
-        <CardWrapper isNavigator={isNavigator} >
+        <CardWrapper isNavigator={isNavigator}>
           <Card sx={{ minWidth: 275 }}>
             <CardContent>
               <Typography
@@ -33,21 +45,25 @@ export const MatchingScheduleCrad = (props: PropsType) => {
               </Typography>
               <CardCommentBackGround>{title}</CardCommentBackGround>
               <Typography sx={{ fontSize: 20 }} color="text.primary">
-                {moment(beginTime).format("MMMM Do, h:mm a").toString()}   ~    {moment(endTime).format("MMMM Do, h:mm a").toString()}
+                {moment(beginTime).format("MMMM Do, h:mm a").toString()} ~{" "}
+                {moment(endTime).format("MMMM Do, h:mm a").toString()}
               </Typography>
             </CardContent>
             <CardActions>
-              <Button>Profile</Button>
+              <Button>Github Profile</Button>
+              <Button onClick={() => setIsOpenChat(!isOpenChat)}>Chatをする</Button>
             </CardActions>
           </Card>
         </CardWrapper>
-      ): (<></>)}
+      ) : (
+        <></>
+      )}
     </>
   );
 };
 
 type isNavigatorType = {
-  isNavigator: boolean
+  isNavigator: boolean;
 };
 
 const CardWrapper = styled.div<isNavigatorType>`

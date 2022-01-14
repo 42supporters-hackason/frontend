@@ -7,17 +7,12 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import MoreIcon from "@mui/icons-material/MoreVert";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import { useNavigate } from "react-router-dom";
-import {
-  useLoginUsernameContext,
-  useLoginUserAvatorContext,
-} from "../../providers/LoginUserProvider";
-import { Avatar, makeStyles, withStyles } from "@mui/material";
-import avatar from "../../img/icon_sample.png"
+import { useLoginUsernameContext } from "../../providers/LoginUserProvider";
+import { Avatar } from "@mui/material";
+import avatar from "../../img/icon_sample.png";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -66,7 +61,6 @@ export const Header = () => {
   const onClickBackToHome = () => {
     navigate("/home");
   };
-
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -131,10 +125,7 @@ export const Header = () => {
               aria-haspopup="true"
               color="default"
             >
-              <Avatar
-                src={avatar}
-                sx={{ width: 50, height: 50 }}
-              />
+              <Avatar src={avatar} sx={{ width: 35, height: 35 }} />
             </IconButton>
           </Box>
         </Toolbar>

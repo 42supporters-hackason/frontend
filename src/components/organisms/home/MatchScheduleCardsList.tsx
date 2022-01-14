@@ -1,8 +1,14 @@
-import { useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { MatchingScheduleCrad } from "../../molecules/Cards/MatchingScheduleCrad";
 import { useGetAllPosts } from "../../../hooks/useGetAllPosts";
 
-export const MatchScheduleCardsList = () => {
+type PropsType = {
+  isOpenChat: boolean;
+  setIsOpenChat: Dispatch<SetStateAction<boolean>>
+}
+
+export const MatchScheduleCardsList = (props: PropsType) => {
+  const { isOpenChat, setIsOpenChat } = props;
   const { getAllPosts, allPosts } = useGetAllPosts();
 
   useEffect(() => {
@@ -21,6 +27,8 @@ export const MatchScheduleCardsList = () => {
             endTime={item.endTime}
             isNavigator={item.isNavigator}
             isMyRelatedPost={item.isMyRelatedPost}
+            isOpenChat={isOpenChat}
+            setIsOpenChat={setIsOpenChat}
           />
         );
       })}

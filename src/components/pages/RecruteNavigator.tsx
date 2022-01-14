@@ -15,7 +15,7 @@ import {
   useRecruteUseLanguageContext,
 } from "../../providers/RecrutePostProvider";
 import moment from "moment";
-import axios from "axios";
+import http from "../../http-common"
 import { useLoginUsernameContext } from "../../providers/LoginUserProvider";
 
 const style = {
@@ -56,7 +56,7 @@ export const RecruteNavigator: VFC = () => {
         skill: ""
       }]
     }
-    await axios.post("https://peerprogramming.herokuapp.com/posts/", data)
+    await http.post("/posts/", data)
     .then((res) => {
       console.log(res)
     })
