@@ -15,7 +15,7 @@ import {
   useRecruteUseLanguageContext,
 } from "../../providers/RecrutePostProvider";
 import moment from "moment";
-import http from "../../http-common"
+import http from "../../http-common";
 import { useLoginUsernameContext } from "../../providers/LoginUserProvider";
 
 const style = {
@@ -36,31 +36,37 @@ export const RecruteNavigator: VFC = () => {
   const recruteUseLanguage = useRecruteUseLanguageContext();
   const recruteStartDate = useRecruteStartDateContext();
   const recruteEndDate = useRecruteEndDateContext();
-  const loginUsername = useLoginUsernameContext()
-  const loginId = localStorage.getItem('id')
+  const loginUsername = useLoginUsernameContext();
+  const loginId = localStorage.getItem("id");
 
   const [open, setOpen] = useState<boolean>(false);
   const handleClose = () => setOpen(false);
 
   const onClickRecruteButton = async () => {
-    const data = {
+    const data = JSON.stringify({
       title: recruteTitle,
       beginTime: recruteStartDate,
       endTime: recruteEndDate,
-      driverId: loginId,
+      driverId: Number(loginId),
       authorName: loginUsername,
       navigatorId: 0,
       otherSkill: "",
-      requiredSkill: [{
-        id: 0,
-        skill: ""
-      }]
-    }
-    await http.post("/posts/", data)
-    .then((res) => {
-      console.log(res)
-    })
-    .catch((res) => console.log(res))
+      requiredSkill: [
+        {
+          id: 0,
+          skill: "",
+        },
+      ],
+    });
+
+    console.log(data);
+
+    await http
+      .post("/posts", data)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((res) => console.log(res));
     navigate("/home");
   };
 
@@ -72,40 +78,42 @@ export const RecruteNavigator: VFC = () => {
     <>
       <Header />
       <RecruteNavigatorBackGround>
-        <MainTitle>
-          あなたが興味のあるトピックを設定して、P2P相手を募集しましょう
-        </MainTitle>
-        <Grid container>
-          <Grid xs={6}>
-            <InputFieldWrapper>
-              <RecruteUseLanguage />
-            </InputFieldWrapper>
+        <SDivContainer>
+          <SDIvHead>
+            <h2>条件を設定してP2P相手を募集しましょう</h2>
+          </SDIvHead>
+          <Grid container>
+            <Grid xs={6}>
+              <InputFieldWrapper>
+                <RecruteUseLanguage />
+              </InputFieldWrapper>
+            </Grid>
+            <Grid xs={6}>
+              <InputFieldWrapper>
+                <RecruteTitle />
+              </InputFieldWrapper>
+            </Grid>
+            <Grid xs={6}>
+              <InputFieldWrapper>
+                <RecruteDateField />
+              </InputFieldWrapper>
+            </Grid>
+            <Grid xs={6}>
+              <InputFieldWrapper>
+                <SButton variant="outlined" onClick={onClickOpenModal}>
+                  この条件で募集する
+                </SButton>
+              </InputFieldWrapper>
+            </Grid>
           </Grid>
-          <Grid xs={6}>
-            <InputFieldWrapper>
-              <RecruteTitle />
-            </InputFieldWrapper>
-          </Grid>
-          <Grid xs={6}>
-            <InputFieldWrapper>
-              <RecruteDateField />
-            </InputFieldWrapper>
-          </Grid>
-          <Grid xs={6}>
-            <InputFieldWrapper>
-              <Button variant="outlined" onClick={onClickOpenModal}>
-                この条件で募集する
-              </Button>
-            </InputFieldWrapper>
-          </Grid>
-        </Grid>
+        </SDivContainer>
         <Modal
           open={open}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style}>
+          <Box sx={style} style={{ borderRadius: "15px" }}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
               この条件で募集しますか？
               <br />
@@ -118,9 +126,13 @@ export const RecruteNavigator: VFC = () => {
               endDate:{" "}
               {moment(recruteEndDate).format("MMMM Do, h:mm a").toString()}
             </Typography>
-            <Button variant="outlined" onClick={onClickRecruteButton}>
+            <SButton
+              variant="outlined"
+              onClick={onClickRecruteButton}
+              style={{ marginTop: "50px" }}
+            >
               この条件で募集する
-            </Button>
+            </SButton>
           </Box>
         </Modal>
       </RecruteNavigatorBackGround>
@@ -132,15 +144,50 @@ const RecruteNavigatorBackGround = styled.div`
   text-align: center;
 `;
 
-const MainTitle = styled.div`
-  margin-top: 40px;
-  font-size: 25px;
-  border: 10px solid;
-  border-radius: 50px;
-  border-color: #ffd1d1;
-  padding: 15px;
-`;
-
 const InputFieldWrapper = styled.div`
   margin-top: 50px;
+`;
+
+const SDivContainer = styled.div`
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  background-color: #fafafa;
+`;
+
+const SDIvHead = styled.div`
+  -webkit-border-radius: 6px 6px 0px 0px;
+  -moz-border-radius: 6px 6px 0px 0px;
+  border-radius: 6px 6px 0px 0px;
+  background-color: #2abca7;
+  color: #fafafa;
+
+  h2 {
+    text-align: center;
+    padding: 18px 0 18px 0;
+    font-size: 1.4em;
+  }
+`;
+
+const SButton = styled(Button)`
+  margin-top: 90px;
+  margin-bottom: 25px;
+  background-color: #2abca7;
+  padding: 12px 45px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #2abca7;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  display: inline-block;
+  cursor: pointer;
+  width: 300px;
+  color: #fff;
+
+  &:hover {
+    background-color: #5fdecc;
+  }
 `;

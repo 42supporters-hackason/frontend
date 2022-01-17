@@ -12,6 +12,8 @@ type PropsType = {
   title: string;
   beginTime: Date;
   endTime: Date;
+  navigatorId: number | undefined;
+  driverId: number | undefined;
   isNavigator: boolean;
   isMyRelatedPost: boolean;
   isOpenChat: boolean;
@@ -24,25 +26,38 @@ export const MatchingScheduleCrad = (props: PropsType) => {
     title,
     beginTime,
     endTime,
+    navigatorId,
+    driverId,
     isNavigator,
     isMyRelatedPost,
     isOpenChat,
     setIsOpenChat,
   } = props;
+  const loginId = localStorage.getItem("id");
 
   return (
     <>
       {isMyRelatedPost ? (
-        <CardWrapper isNavigator={isNavigator}>
+        <CardWrapper isNavigator={isNavigator} navigatorId={navigatorId}>
           <Card sx={{ minWidth: 275 }}>
             <CardContent>
-              <Typography
-                sx={{ fontSize: 20 }}
-                color="text.secondary"
-                gutterBottom
-              >
-                navigator: {username}
-              </Typography>
+              {navigatorId !== 0 ? (
+                <Typography
+                  sx={{ fontSize: 20 }}
+                  color="text.secondary"
+                  gutterBottom
+                >
+                  navigatorは {username} です
+                </Typography>
+              ) : (
+                <Typography
+                  sx={{ fontSize: 20 }}
+                  color="text.secondary"
+                  gutterBottom
+                >
+                  matchingが成立していません
+                </Typography>
+              )}
               <CardCommentBackGround>{title}</CardCommentBackGround>
               <Typography sx={{ fontSize: 20 }} color="text.primary">
                 {moment(beginTime).format("MMMM Do, h:mm a").toString()} ~{" "}
@@ -51,7 +66,9 @@ export const MatchingScheduleCrad = (props: PropsType) => {
             </CardContent>
             <CardActions>
               <Button>Github Profile</Button>
-              <Button onClick={() => setIsOpenChat(!isOpenChat)}>Chatをする</Button>
+              <Button onClick={() => setIsOpenChat(!isOpenChat)}>
+                Chatをする
+              </Button>
             </CardActions>
           </Card>
         </CardWrapper>
@@ -63,13 +80,14 @@ export const MatchingScheduleCrad = (props: PropsType) => {
 };
 
 type isNavigatorType = {
+  navigatorId: number | undefined;
   isNavigator: boolean;
 };
 
 const CardWrapper = styled.div<isNavigatorType>`
   margin: 20px 100px 10px 50px;
   border: ${(props) =>
-    props.isNavigator ? "solid 2px #D1D3FF" : "solid 2px #FFD1D1"};
+    props.navigatorId === 0 ? "none" : "solid 2px #2abca7"};
 `;
 
 const CardCommentBackGround = styled.div`

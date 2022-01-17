@@ -1,34 +1,56 @@
-import { Button } from '@mui/material'
-import React, { VFC } from 'react'
-import styled from "styled-components"
-import { useNavigate } from "react-router-dom"
+import { Button } from "@mui/material";
+import React, { VFC } from "react";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 export const MoveToRecrute: VFC = () => {
-	const navigate = useNavigate()
+  const navigate = useNavigate();
 
-	const onClickRecruteButton = () => {
-		navigate("/recrute")
-	}
-	return (
-		<>
-			<MatchRecruteDescription>
-			あなたが目的を設定して <br/>
-			P2Pを募集する
-			</MatchRecruteDescription>
-			<ButtonWrapper>
-				<Button variant="outlined" onClick={onClickRecruteButton}>ナビゲータを募集する</Button>
-			</ButtonWrapper>
-		</>
-	)
-}
+  const onClickRecruteButton = () => {
+    navigate("/recrute");
+  };
+  return (
+    <>
+      <MatchRecruteDescription>
+        あなたが目的を設定して <br />
+        P2Pを募集する
+      </MatchRecruteDescription>
+      <ButtonWrapper>
+        <SButton variant="outlined" onClick={onClickRecruteButton}>
+          ナビゲータを募集する
+        </SButton>
+      </ButtonWrapper>
+    </>
+  );
+};
 
 const MatchRecruteDescription = styled.div`
-	margin-top: 100px;
-	text-align: center;
-	font-size: 20px;
-`
+  margin-top: 100px;
+  text-align: center;
+  font-size: 20px;
+`;
 
 const ButtonWrapper = styled.div`
-	text-align: center;
-	margin-top: 20px;
-`
+  text-align: center;
+  margin-top: 20px;
+`;
+
+const SButton = styled(Button)`
+  margin-bottom: 25px;
+  background-color: #2abca7;
+  padding: 12px 45px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #2abca7;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  display: inline-block;
+  cursor: pointer;
+  width: 300px;
+  color: #fff;
+
+  &:hover {
+    background-color: #5fdecc;
+  }
+`;

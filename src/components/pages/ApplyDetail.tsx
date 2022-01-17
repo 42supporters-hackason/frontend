@@ -18,22 +18,23 @@ export const ApplyDetail: VFC = () => {
 	const onClickApplyNavigator = async () => {
 		await http.get<postDataType>(`/posts/${onClickId}`)
 		.then(async (res) => {
-			let tmpPost: postDataType = {
-				id: res.data.id,
-				title: res.data.title,
-				beginTime: res.data.beginTime,
-				endTime: res.data.endTime,
-				driverId: res.data.driverId,
-				authorName: res.data.authorName,
-				navigatorId: Number(loginId),
-				otherSkill: res.data.otherSkill,
-				requiredSkill: res.data.requiredSkill,
-			}
+			let tmpPost = JSON.stringify({
+				"id": res.data.id,
+				"title": res.data.title,
+				"beginTime": res.data.beginTime,
+				"endTime": res.data.endTime,
+				"driverId": res.data.driverId,
+				"authorName": res.data.authorName,
+				"navigatorId": Number(loginId),
+				"otherSkill": res.data.otherSkill,
+				"requiredSkill": res.data.requiredSkill,
+			})
+
 			console.log(tmpPost)
-			//await axios.put(`https://peerprogramming.herokuapp.com/posts/${onClickId}`, {tmpPost})
-			//.then((res) => {
-			//	console.log(res)
-			//})
+			await http.put(`/posts/${onClickId}`, tmpPost)
+			.then((res) => {
+				console.log(res)
+			})
 		})
 		navigate('/home')
 	}
