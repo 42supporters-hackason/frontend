@@ -43,20 +43,23 @@ export const RecruteNavigator: VFC = () => {
   const handleClose = () => setOpen(false);
 
   const onClickRecruteButton = async () => {
-    const data = {
-      title: recruteTitle,
-      beginTime: recruteStartDate,
-      endTime: recruteEndDate,
-      driverId: loginId,
-      authorName: loginUsername,
-      navigatorId: 0,
-      otherSkill: "",
-      requiredSkill: [{
-        id: 0,
-        skill: ""
+    const data = JSON.stringify({
+      "title": recruteTitle,
+      "beginTime": recruteStartDate,
+      "endTime": recruteEndDate,
+      "driverId": Number(loginId),
+      "authorName": loginUsername,
+      "navigatorId": 0,
+      "otherSkill": "",
+      "requiredSkill": [{
+        "id": 0,
+        "skill": ""
       }]
-    }
-    await http.post("/posts/", data)
+    })
+
+    console.log(data)
+
+    await http.post("/posts", data)
     .then((res) => {
       console.log(res)
     })

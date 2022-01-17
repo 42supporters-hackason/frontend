@@ -11,7 +11,7 @@ export const ApplyKeywordField = memo(() => {
 
   return (
     <InputFieldWrapper>
-      <Typography>キーワード</Typography>
+      <Typography>キーワード検索</Typography>
       <StyledTextField
         variant="outlined"
         label="キーワード"
@@ -26,5 +26,20 @@ const InputFieldWrapper = styled.div`
 `;
 
 const StyledTextField = styled(TextField)`
-  width: 300px;
+  font-size: 1em;
+  font-family: 'Source Sans Pro',arial,sans-serif;
+  border: 1px solid #cecece;
+  color:#FAFAFA;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 80%;
+  max-width: 600px;
+  margin-top: 15px;
 `;
