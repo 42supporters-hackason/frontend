@@ -3,12 +3,12 @@ import { ApplyDetailCard } from "../../molecules/Cards/ApplyDetailCard";
 import { useGetAllPosts } from "../../../hooks/useGetAllPosts";
 
 type PropsType = {
-	onClickId: number | undefined;
-	setOnClickId: React.Dispatch<React.SetStateAction<number | undefined>>
-}
+  onClickId: number | undefined;
+  setOnClickId: React.Dispatch<React.SetStateAction<number | undefined>>;
+};
 
 export const ApplyDetailCardsList = (props: PropsType) => {
-	const { onClickId, setOnClickId } = props;
+  const { onClickId, setOnClickId } = props;
   const { getAllPosts, allPosts } = useGetAllPosts();
 
   useEffect(() => {
@@ -21,14 +21,15 @@ export const ApplyDetailCardsList = (props: PropsType) => {
         return (
           <ApplyDetailCard
             key={item.id}
-						id={item.id}
+            id={item.id}
             username={item.authorName}
             title={item.title}
             beginTime={item.beginTime}
             endTime={item.endTime}
             isMyRelatedPost={item.isMyRelatedPost}
-						onClickId={onClickId}
-						setOnClickId={setOnClickId}
+            requiredSkills={item.requiredSkills}
+            onClickId={onClickId}
+            setOnClickId={setOnClickId}
           />
         );
       })}

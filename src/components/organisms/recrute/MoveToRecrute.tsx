@@ -39,11 +39,8 @@ const SButton = styled(Button)`
   margin-bottom: 25px;
   background-color: #2abca7;
   padding: 12px 45px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid #2abca7;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
   display: inline-block;
   cursor: pointer;

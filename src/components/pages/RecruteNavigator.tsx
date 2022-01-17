@@ -53,13 +53,10 @@ export const RecruteNavigator: VFC = () => {
       otherSkill: "",
       requiredSkill: [
         {
-          id: 0,
-          skill: "",
+          skill: recruteUseLanguage,
         },
       ],
     });
-
-    console.log(data);
 
     await http
       .post("/posts", data)
