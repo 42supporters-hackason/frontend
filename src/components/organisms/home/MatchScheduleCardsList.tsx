@@ -4,8 +4,8 @@ import { useGetAllPosts } from "../../../hooks/useGetAllPosts";
 
 type PropsType = {
   isOpenChat: boolean;
-  setIsOpenChat: Dispatch<SetStateAction<boolean>>
-}
+  setIsOpenChat: Dispatch<SetStateAction<boolean>>;
+};
 
 export const MatchScheduleCardsList = (props: PropsType) => {
   const { isOpenChat, setIsOpenChat } = props;
@@ -14,6 +14,8 @@ export const MatchScheduleCardsList = (props: PropsType) => {
   useEffect(() => {
     getAllPosts();
   }, []);
+
+  console.log(allPosts);
 
   return (
     <>
@@ -25,6 +27,8 @@ export const MatchScheduleCardsList = (props: PropsType) => {
             title={item.title}
             beginTime={item.beginTime}
             endTime={item.endTime}
+            navigatorId={item.navigatorId}
+            driverId={item.driverId}
             isNavigator={item.isNavigator}
             isMyRelatedPost={item.isMyRelatedPost}
             isOpenChat={isOpenChat}
