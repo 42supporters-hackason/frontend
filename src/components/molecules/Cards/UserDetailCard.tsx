@@ -21,6 +21,18 @@ export const UserDetailCard = memo(() => {
                 listItemTitle="evaluation point"
                 listItem={["5"]}
               />
+              <UserProfileList
+                title="自己PR"
+                listItemTitle="self promotion"
+                listItem={[
+                  "普段はフロントエンドエンジニアとして働いています。 ただ、フルスタックなエンジニアを目指しているので、ぜひバックエンドの知識が豊富な方とmatchingしたいです!!",
+                ]}
+              />
+              <UserProfileList
+                title="Githubのリンク"
+                listItemTitle="github id"
+                listItem={["https://github.com/taisei-13046"]}
+              />
             </CardCommentBackGround>
           </CardContent>
         </Card>

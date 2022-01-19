@@ -42,7 +42,6 @@ export const MatchingScheduleCrad = (props: PropsType) => {
     beginTime,
     endTime,
     navigatorId,
-    driverId,
     requiredSkills,
     isNavigator,
     isMyRelatedPost,
