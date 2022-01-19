@@ -50,9 +50,9 @@ export const ApplyDetail: VFC = () => {
         <Grid xs={4}>
           <UserDetailCard />
           <ButtonWrapper>
-            <Button variant="outlined" onClick={onClickApplyNavigator}>
+            <SButton variant="outlined" onClick={onClickApplyNavigator}>
               この募集にApplyする
-            </Button>
+            </SButton>
           </ButtonWrapper>
         </Grid>
       </Grid>
@@ -63,4 +63,25 @@ export const ApplyDetail: VFC = () => {
 const ButtonWrapper = styled.div`
   text-align: center;
   margin-top: 20px;
+`;
+
+const SButton = styled(Button)`
+  margin-top: 15px;
+  margin-bottom: 25px;
+  background-color: #2abca7;
+  padding: 12px 45px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #2abca7;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  display: inline-block;
+  cursor: pointer;
+  width: 250px;
+  color: #fff;
+
+  &:hover {
+    background-color: #5fdecc;
+  }
 `;

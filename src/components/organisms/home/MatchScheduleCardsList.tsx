@@ -29,6 +29,7 @@ export const MatchScheduleCardsList = (props: PropsType) => {
             endTime={item.endTime}
             navigatorId={item.navigatorId}
             driverId={item.driverId}
+            requiredSkills={item.requiredSkills}
             isNavigator={item.isNavigator}
             isMyRelatedPost={item.isMyRelatedPost}
             isOpenChat={isOpenChat}
