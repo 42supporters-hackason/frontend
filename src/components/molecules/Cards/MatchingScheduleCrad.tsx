@@ -130,12 +130,18 @@ export const MatchingScheduleCrad = (props: PropsType) => {
                 <></>
               )}
             </CardContent>
-            <CardActions>
-              <Button>Github Profile</Button>
-              <Button onClick={() => setIsOpenChat(!isOpenChat)}>
-                Chatをする
-              </Button>
-            </CardActions>
+            {navigatorId ? (
+              <>
+                <CardActions>
+                  <Button>Github Profile</Button>
+                  <Button onClick={() => setIsOpenChat(!isOpenChat)}>
+                    Chatをする
+                  </Button>
+                </CardActions>
+              </>
+            ) : (
+              <></>
+            )}
           </Card>
         </CardWrapper>
       ) : (
