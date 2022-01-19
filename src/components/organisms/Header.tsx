@@ -12,7 +12,7 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import { useNavigate } from "react-router-dom";
 import { useLoginUsernameContext } from "../../providers/LoginUserProvider";
 import { Avatar } from "@mui/material";
-import avatar from "../../img/icon_sample.png";
+import avatar from "../../img/icon_sample1.png";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
