@@ -5,7 +5,6 @@ import Grid from "@mui/material/Grid";
 import { MatchScheduleCardsList } from "../organisms/home/MatchScheduleCardsList";
 import { MoveToApply } from "../organisms/apply/MoveToApply";
 import { MoveToRecrute } from "../organisms/recrute/MoveToRecrute";
-import { Chat } from "../organisms/chat/Chat";
 
 export const Home: VFC = () => {
   const [isOpenChat, setIsOpenChat] = useState(false);
@@ -21,15 +20,9 @@ export const Home: VFC = () => {
           />
         </Grid>
         <Grid item xs={4}>
-          {isOpenChat ? (
-            <Chat />
-          ) : (
-            <>
-              <MatchingRouteTitle>Matchingする</MatchingRouteTitle>
-              <MoveToRecrute />
-              <MoveToApply />
-            </>
-          )}
+          <MatchingRouteTitle>Matchingする</MatchingRouteTitle>
+          <MoveToRecrute />
+          <MoveToApply />
         </Grid>
       </Grid>
     </BackGround>

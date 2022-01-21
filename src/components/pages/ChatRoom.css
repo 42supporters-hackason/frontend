@@ -1,12 +1,8 @@
 .chat-room-container {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  height: 700px;
   display: flex;
   flex-direction: column;
-  margin: 16px;
+  justify-content: center;
 }
 
 .room-name {
@@ -27,7 +23,7 @@
 }
 
 .new-message-input-field {
-  height: 200px;
+  height: 50px;
   max-height: 50%;
   font-size: 20px;
   padding: 8px 12px;
@@ -60,6 +56,7 @@
   background: #31a24c;
   padding: 24px 12px;
   border: none;
+  border-radius: 15px;
 }
 
 .messages-container,
