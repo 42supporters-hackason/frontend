@@ -6,7 +6,7 @@ const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
 const SOCKET_SERVER_URL = "http://localhost:4000";
 
 type MessageType = {
-  ownedByCurrentUser: "my-message" | "received-message";
+  owndByCurrentUser: boolean;
   body: string | null;
 };
 
