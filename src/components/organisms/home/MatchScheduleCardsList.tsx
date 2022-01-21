@@ -23,6 +23,7 @@ export const MatchScheduleCardsList = (props: PropsType) => {
         return (
           <MatchingScheduleCrad
             key={item.id}
+            id={item.id}
             username={item.authorName}
             title={item.title}
             beginTime={item.beginTime}

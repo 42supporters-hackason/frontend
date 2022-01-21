@@ -17,8 +17,10 @@ import avatar_img7 from "../../../img/icon_sample7.png";
 import avatar_img8 from "../../../img/icon_sample8.png";
 import avatar_img9 from "../../../img/icon_sample9.png";
 import avatar_img10 from "../../../img/icon_sample10.png";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 type PropsType = {
+  id: number;
   username: string;
   title: string;
   beginTime: Date;
@@ -37,6 +39,7 @@ type PropsType = {
 
 export const MatchingScheduleCrad = (props: PropsType) => {
   const {
+    id,
     username,
     title,
     beginTime,
@@ -48,6 +51,7 @@ export const MatchingScheduleCrad = (props: PropsType) => {
     isOpenChat,
     setIsOpenChat,
   } = props;
+  const navigate = useNavigate();
 
   let avatar;
 
@@ -134,9 +138,7 @@ export const MatchingScheduleCrad = (props: PropsType) => {
               <>
                 <CardActions>
                   <Button>Github Profile</Button>
-                  <Button onClick={() => setIsOpenChat(!isOpenChat)}>
-                    Chatをする
-                  </Button>
+                  <Link to={`/chat/${id}`}>Chatをする</Link>
                 </CardActions>
               </>
             ) : (
