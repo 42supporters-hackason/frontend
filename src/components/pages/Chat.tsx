@@ -25,6 +25,10 @@ export const Chat = (props: any) => {
     navigate("/home");
   };
 
+  messages.map((message) => {
+    console.log(message.owndByCurrentUser);
+  });
+
   return (
     <>
       <Grid container>
@@ -34,16 +38,9 @@ export const Chat = (props: any) => {
             <div className="messages-container">
               <ol className="messages-list">
                 {messages.map((message, i) => (
-                  <li
-                    key={i}
-                    className={`message-item ${
-                      message.ownedByCurrentUser
-                        ? "my-message"
-                        : "received-message"
-                    }`}
-                  >
+                  <SMessageList key={i} isMyMessage={message.owndByCurrentUser}>
                     {message.body}
-                  </li>
+                  </SMessageList>
                 ))}
               </ol>
             </div>
@@ -66,18 +63,35 @@ export const Chat = (props: any) => {
   );
 };
 
+type MessageProps = {
+  isMyMessage: boolean;
+};
+
+const SMessageList = styled.li<MessageProps>`
+  width: 55%;
+  margin: 8px;
+  padding: 12px 8px;
+  word-break: break-word;
+  border-radius: 4px;
+  color: white;
+  background-color: ${(props) =>
+    props.isMyMessage ? "rgb(0, 132, 255)" : "black"};
+  margin: ${(props) => (props.isMyMessage ? "0 0 0 auto" : "0 auto 0 0 ")};
+`;
+
 const SButton = styled(Button)`
-  margin-top: 640px;
+  margin-top: 610px;
   margin-bottom: 25px;
   background-color: #2abca7;
-  padding: 12px 45px;
   -ms-border-radius: 5px;
+  padding: 20px 20px;
   -o-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid #2abca7;
+  border-radius: 50%;
+  border: 1px solid #2aabbc;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  display: inline-block;
+  display: block;
+  text-align: center;
   cursor: pointer;
   width: 100%;
   color: #fff;
