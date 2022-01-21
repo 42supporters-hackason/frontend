@@ -36,6 +36,8 @@ export const useGetAllPosts = () => {
             endTime: item.endTime,
             driverId: item.driverId,
             authorName: item.authorName,
+            navigatorName: item.navigatorName,
+            driverName: item.driverName,
             navigatorId: item.navigatorId,
             otherSkill: item.otherSkill,
             requiredSkills: [
@@ -54,6 +56,8 @@ export const useGetAllPosts = () => {
             beginTime: item.beginTime,
             endTime: item.endTime,
             driverId: item.driverId,
+            navigatorName: item.navigatorName,
+            driverName: item.driverName,
             authorName: item.authorName,
             navigatorId: item.navigatorId,
             otherSkill: item.otherSkill,

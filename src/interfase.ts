@@ -19,6 +19,8 @@ export type postDataType = {
   endTime: Date;
   driverId: number | undefined;
   authorName: string;
+  driverName?: string;
+  navigatorName?: string;
   navigatorId: number | undefined;
   otherSkill: string;
   requiredSkills?: {
