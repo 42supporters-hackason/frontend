@@ -27,6 +27,8 @@ type PropsType = {
   endTime: Date;
   navigatorId: number | undefined;
   driverId: number | undefined;
+  driverName: string | undefined;
+  navigatorName: string | undefined;
   requiredSkills?: {
     id: number;
     skill: string;
@@ -45,9 +47,12 @@ export const MatchingScheduleCrad = (props: PropsType) => {
     beginTime,
     endTime,
     navigatorId,
+    driverId,
     requiredSkills,
     isNavigator,
     isMyRelatedPost,
+    driverName,
+    navigatorName,
     isOpenChat,
     setIsOpenChat,
   } = props;
@@ -55,7 +60,7 @@ export const MatchingScheduleCrad = (props: PropsType) => {
 
   let avatar;
 
-  switch (navigatorId) {
+  switch (driverId) {
     case 1:
       avatar = avatar_img1;
       break;
@@ -105,7 +110,7 @@ export const MatchingScheduleCrad = (props: PropsType) => {
                     color="text.secondary"
                     gutterBottom
                   >
-                    navigatorは {username} です
+                    driverは {username} です
                   </Typography>
                 ) : (
                   <Typography
@@ -138,7 +143,14 @@ export const MatchingScheduleCrad = (props: PropsType) => {
               <>
                 <CardActions>
                   <Button>Github Profile</Button>
-                  <Link to={`/chat/${id}`}>Chatをする</Link>
+                  <SButton>
+                    <Link
+                      to={`/chat/${id}`}
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      Chatをする
+                    </Link>
+                  </SButton>
                 </CardActions>
               </>
             ) : (
@@ -168,7 +180,24 @@ const CardCommentBackGround = styled.div`
   background-color: #f1f1f2;
   width: 600px;
   min-height: 50px;
-  heigth: auto;
+  height: auto;
   border-radius: 5px;
   padding: 15px;
+`;
+
+const SButton = styled(Button)`
+  background-color: #2abca7;
+  border-radius: 20px;
+  border: 1px solid #2abca7;
+  transition: 0.5s;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  width: 150px;
+  color: #fff;
+
+  &:hover {
+    background-color: #5fdecc;
+  }
 `;
