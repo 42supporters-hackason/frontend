@@ -18,6 +18,10 @@ import avatar_img8 from "../../../img/icon_sample8.png";
 import avatar_img9 from "../../../img/icon_sample9.png";
 import avatar_img10 from "../../../img/icon_sample10.png";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import {
+  useSetChatDriverContext,
+  useSetChatNavigatorContext,
+} from "../../../providers/ChatUserProvider";
 
 type PropsType = {
   id: number;
@@ -57,6 +61,8 @@ export const MatchingScheduleCrad = (props: PropsType) => {
     setIsOpenChat,
   } = props;
   const navigate = useNavigate();
+  const setChatNavigator = useSetChatNavigatorContext();
+  const setChatDriver = useSetChatDriverContext();
 
   let avatar;
 
@@ -147,6 +153,10 @@ export const MatchingScheduleCrad = (props: PropsType) => {
                     <Link
                       to={`/chat/${id}`}
                       style={{ textDecoration: "none", color: "white" }}
+                      onClick={() => {
+                        setChatNavigator(navigatorName);
+                        setChatDriver(driverName);
+                      }}
                     >
                       Chatをする
                     </Link>
