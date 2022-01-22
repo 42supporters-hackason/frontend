@@ -53,8 +53,9 @@ export const RecruteNavigator: VFC = () => {
       otherSkill: "",
       driverName: loginUsername,
       navigatorName: "",
-      reqNiredSkill: [
+      requiredSkills: [
         {
+          id: 1,
           skill: recruteUseLanguage,
         },
       ],
