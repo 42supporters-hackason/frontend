@@ -21,6 +21,8 @@ type PropsType = {
   title: string;
   beginTime: Date;
   endTime: Date;
+  driverId: number | undefined;
+  driverName?: string;
   isMyRelatedPost: boolean;
   requiredSkills?: {
     id: number;
@@ -37,6 +39,8 @@ export const ApplyDetailCard = (props: PropsType) => {
     title,
     beginTime,
     endTime,
+    driverId,
+    driverName,
     isMyRelatedPost,
     requiredSkills,
     onClickId,
@@ -45,7 +49,7 @@ export const ApplyDetailCard = (props: PropsType) => {
 
   let avatar;
 
-  switch (id) {
+  switch (driverId) {
     case 1:
       avatar = avatar_img1;
       break;
@@ -99,7 +103,7 @@ export const ApplyDetailCard = (props: PropsType) => {
                   color="text.secondary"
                   gutterBottom
                 >
-                  navigator: {username}
+                  driver: {driverName}
                 </Typography>
               </div>
               <CardCommentBackGround>{title}</CardCommentBackGround>

@@ -25,6 +25,8 @@ export const ApplyDetailCardsList = (props: PropsType) => {
             username={item.authorName}
             title={item.title}
             beginTime={item.beginTime}
+            driverId={item.driverId}
+            driverName={item.driverName}
             endTime={item.endTime}
             isMyRelatedPost={item.isMyRelatedPost}
             requiredSkills={item.requiredSkills}
