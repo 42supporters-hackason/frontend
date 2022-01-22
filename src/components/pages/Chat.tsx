@@ -3,7 +3,7 @@ import React from "react";
 import "./ChatRoom.css";
 import { useChat } from "../../hooks/useChat";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button, Grid } from "@mui/material";
+import { Button, Grid, TextField } from "@mui/material";
 import styled from "styled-components";
 
 export const Chat = (props: any) => {
@@ -32,30 +32,39 @@ export const Chat = (props: any) => {
   return (
     <>
       <Grid container>
-        <Grid xs={10}>
-          <div className="chat-room-container">
-            <h1 className="room-name">Room: {roomId}</h1>
-            <div className="messages-container">
-              <ol className="messages-list">
-                {messages.map((message, i) => (
-                  <SMessageList key={i} isMyMessage={message.owndByCurrentUser}>
-                    {message.body}
-                  </SMessageList>
-                ))}
-              </ol>
+        <Grid xs={8}>
+          <div className="all-wrapper">
+            <div className="chat-room-container">
+              <div className="room-name"></div>
+              <div className="messages-container">
+                <ol className="messages-list">
+                  {messages.map((message, i) => (
+                    <SMessageList
+                      key={i}
+                      isMyMessage={message.owndByCurrentUser}
+                    >
+                      {message.body}
+                    </SMessageList>
+                  ))}
+                </ol>
+              </div>
+              <TextButtonContainer>
+                <StyledTextField
+                  value={newMessage}
+                  onChange={handleNewMessageChange}
+                  placeholder="Write message..."
+                />
+                <StyledSendButton
+                  variant="contained"
+                  onClick={handleSendMessage}
+                >
+                  Send
+                </StyledSendButton>
+              </TextButtonContainer>
             </div>
-            <textarea
-              value={newMessage}
-              onChange={handleNewMessageChange}
-              placeholder="Write message..."
-              className="new-message-input-field"
-            />
-            <button onClick={handleSendMessage} className="send-message-button">
-              Send
-            </button>
           </div>
         </Grid>
-        <Grid xs={2}>
+        <Grid xs={4}>
           <SButton onClick={onClickBackHome}>Back To Home</SButton>
         </Grid>
       </Grid>
@@ -68,15 +77,17 @@ type MessageProps = {
 };
 
 const SMessageList = styled.li<MessageProps>`
-  width: 55%;
-  margin: 8px;
+  width: 40%;
   padding: 12px 8px;
+  margin-top: 10px;
   word-break: break-word;
   border-radius: 4px;
-  color: white;
+  color: ${(props) => (props.isMyMessage ? "white" : "black")};
   background-color: ${(props) =>
-    props.isMyMessage ? "rgb(0, 132, 255)" : "black"};
-  margin: ${(props) => (props.isMyMessage ? "0 0 0 auto" : "0 auto 0 0 ")};
+    props.isMyMessage ? "rgb(0, 132, 255)" : "white"};
+  margin: ${(props) =>
+    props.isMyMessage ? "10px 0 0 auto" : "10px auto 0 0 "};
+  border: ${(props) => (props.isMyMessage ? "none" : "1px solid #d3d3d3")};
 `;
 
 const SButton = styled(Button)`
@@ -85,6 +96,10 @@ const SButton = styled(Button)`
   background-color: #2abca7;
   -ms-border-radius: 5px;
   padding: 20px 20px;
+  @media (min-width: 780px) {
+    padding: 30px 20px;
+    border-radius: 30px;
+  }
   -o-border-radius: 5px;
   border-radius: 50%;
   border: 1px solid #2aabbc;
@@ -98,4 +113,20 @@ const SButton = styled(Button)`
   &:hover {
     background-color: #5fdecc;
   }
+`;
+
+const StyledSendButton = styled(Button)`
+  width: 20%;
+  margin-right: 20px;
+`;
+
+const StyledTextField = styled(TextField)`
+  width: 70%;
+  margin: 0 30px;
+`;
+
+const TextButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
 `;

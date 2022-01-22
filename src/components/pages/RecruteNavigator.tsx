@@ -55,7 +55,6 @@ export const RecruteNavigator: VFC = () => {
       navigatorName: "",
       requiredSkills: [
         {
-          id: 1,
           skill: recruteUseLanguage,
         },
       ],
