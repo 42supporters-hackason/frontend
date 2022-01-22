@@ -1,4 +1,4 @@
-import { useState, VFC } from "react";
+import { useEffect, useState, VFC } from "react";
 import { ApplyDetailCardsList } from "../organisms/apply/ApplyDetailCardsList";
 import { Header } from "../organisms/Header";
 import Grid from "@mui/material/Grid";
@@ -8,12 +8,17 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { postDataType } from "../../interfase";
 import http from "../../http-common";
+import { useGetSpecificUser } from "../../hooks/useGetSpecificUser";
 
 export const ApplyDetail: VFC = () => {
   const navigate = useNavigate();
   const [onClickId, setOnClickId] = useState<number | undefined>(undefined);
   const loginId = localStorage.getItem("id");
-  console.log(onClickId);
+  const { specificUser, getSpecificUser } = useGetSpecificUser();
+
+  useEffect(() => {
+    getSpecificUser(Number(loginId));
+  }, []);
 
   const onClickApplyNavigator = async () => {
     await http.get<postDataType>(`/posts/${onClickId}`).then(async (res) => {
@@ -24,6 +29,8 @@ export const ApplyDetail: VFC = () => {
         endTime: res.data.endTime,
         driverId: res.data.driverId,
         authorName: res.data.authorName,
+        driverName: res.data.driverName,
+        navigatorName: specificUser?.name,
         navigatorId: Number(loginId),
         otherSkill: res.data.otherSkill,
         requiredSkills: res.data.requiredSkills,
